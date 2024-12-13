@@ -37,7 +37,29 @@
                             @endif
                         </div>
                     </div>
-
+                    <div class="mb-3 row">
+                        <label for="summary" class="col-md-2 col-form-label text-md-end text-start">Summary</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control @error('summary') is-invalid @enderror" id="summary" name="summary" rows="10">{{ $post->summary }}</textarea>
+                            @if ($errors->has('summary'))
+                                <span class="text-danger">{{ $errors->first('summary') }}</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="category_id" class="col-md-2 col-form-label text-md-end text-start">Category</label>
+                        <div class="col-md-9">
+                        <select name="category_id" id="category_id" class="form-control">
+                            @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" 
+                                {{ old('category_id', $post->category_id) == $category->id ? 'selected' : '' }}>{{ $category->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                        </div>
+                       
+                        
+                    </div>
                     <div class="mb-3 row">
                         <label for="editor" class="col-md-2 col-form-label text-md-end text-start">Content</label>
                         <div class="col-md-9">

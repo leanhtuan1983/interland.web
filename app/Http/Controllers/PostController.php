@@ -83,8 +83,12 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $categories = Category::all();
+        $pages = Page::all();
         return view('posts.edit', [
-            'post' => $post
+            'post' => $post,
+            'categories'=>$categories,
+            'pages'=>$pages
         ]);
     }
 
