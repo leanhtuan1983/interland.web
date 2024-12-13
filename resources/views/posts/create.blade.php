@@ -62,9 +62,9 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="content" class="col-md-2 col-form-label text-md-end text-start">Content</label>
+                        <label for="editor" class="col-md-2 col-form-label text-md-end text-start">Content</label>
                         <div class="col-md-9">
-                            <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content">{{ old('content') }}</textarea>
+                            <textarea id="editor" name="content" class="form-control @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
                             @if ($errors->has('content'))
                                 <span class="text-danger">{{ $errors->first('content') }}</span>
                             @endif
@@ -79,5 +79,24 @@
         </div>
     </div>    
 </div>
-    
+<script>
+    tinymce.init({
+        selector: 'textarea#editor', // ID của textarea
+        plugins: 'image link media table code',
+        toolbar: 'undo redo | styleselect | bold italic | link image media | code',
+        file_picker_callback: function(callback, value, meta) {
+            let cmsURL = '/laravel-filemanager?editor=' + meta.fieldname; // URL Laravel File Manager
+            tinymce.activeEditor.windowManager.openUrl({
+                title: 'Laravel File Manager',
+                url: cmsURL,
+                width: 900,
+                height: 600,
+                onMessage: (api, message) => {
+                    callback(message.content);
+                }
+            });
+        }
+    });
+</script>
+ 
 @endsection

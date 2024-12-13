@@ -14,13 +14,14 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Scripts -->
+    <script src="https://cdn.tiny.cloud/1/beqo8y38pp2gon76r50iol2xc3qskb1s4cdm2znwpa4dc4pi/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     APP NAME
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -54,6 +55,9 @@
                             @endcanany
                             @canany(['create-user', 'edit-user', 'delete-user'])
                                 <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
+                            @endcanany
+                            @canany(['create-page', 'edit-page', 'delete-page'])
+                                <li><a class="nav-link" href="{{ route('pages.index') }}">Manage Pages</a></li>
                             @endcanany
                             @canany(['create-category', 'edit-category', 'delete-category'])
                                 <li><a class="nav-link" href="{{ route('categories.index') }}">Manage Categories</a></li>

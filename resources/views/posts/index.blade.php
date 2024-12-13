@@ -16,7 +16,6 @@
                 <th scope="col">Category</th>
                 <th scope="col">Page view</th>
                 <th scope="col">Summary</th>
-                <th scope="col">Content</th>
                 <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -28,8 +27,7 @@
                     <td>{{ $post->author }}</td>
                     <td>{{ $post->categories->name }}</td>
                     <td>{{ $post->pages->name }}</td>
-                    <td>{{ $post->summary }}</td>
-                    <td>{{ $post->content }}</td>
+                    <td>{{ Str::words($post->summary, 50, '...') }}</td>
                     <td>
                         <form action="{{ route('posts.destroy', $post->id) }}" method="post">
                             @csrf
