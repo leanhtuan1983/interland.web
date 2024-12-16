@@ -1,14 +1,17 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\FeIndexController;
-use App\Http\Controllers\PageController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Models\Category;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BannersController;
+use App\Http\Controllers\FeIndexController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +39,9 @@ Route::resources([
     'users' => UserController::class,
     'posts' => PostController::class,
     'categories' => CategoryController::class,
-    'pages'=>PageController::class
+    'pages'=>PageController::class,
+    'banners'=>BannerController::class
 ]);
 
 Route::get('/',[FeIndexController::class,'index'])->name('homepage.index');
+Route::get('/settings',[SettingController::class,'index'])->name('settings');

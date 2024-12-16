@@ -27,11 +27,15 @@
                     @endcanany
                     @canany(['create-category', 'edit-category', 'delete-category'])
                         <a class="btn btn-info" href="{{ route('categories.index') }}">
-                            <i class="bi bi-bookmark"></i> Manage Category</a>
+                            <i class="bi bi-bookmark"></i> Manage Categories</a>
                     @endcanany
                     @canany(['create-post', 'edit-post', 'delete-post'])
                         <a class="btn btn-warning" href="{{ route('posts.index') }}">
                             <i class="bi bi-bag"></i> Manage Posts</a>
+                    @endcanany
+                    @canany(['index-settings'])
+                        <a class="btn btn-secondary" href="{{ route('settings') }}">
+                            <i class="bi bi-gear"></i> Settings</a>
                     @endcanany
                     <p>&nbsp;</p>
                 </div>

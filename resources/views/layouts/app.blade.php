@@ -65,6 +65,9 @@
                             @canany(['create-post', 'edit-post', 'delete-post'])
                                 <li><a class="nav-link" href="{{ route('posts.index') }}">Manage Posts</a></li>
                             @endcanany
+                            @canany(['index-settings'])
+                                <li><a class="nav-link" href="{{ route('settings') }}">Settings</a></li>
+                            @endcanany
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
