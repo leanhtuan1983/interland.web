@@ -25,7 +25,7 @@
                     <td><img src="{{ url('storage/'.$banner->img_path) }}" alt="{{ $banner->img_path }}" style="height: 200px;; object-fit:cover;" /></td>
                     <td>{{ $banner->description }}</td>
                     <td>
-                        <form action="{{ route('banners.destroy', $banner->id) }}" method="banner">
+                        <form action="{{ route('banners.destroy', $banner->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
 

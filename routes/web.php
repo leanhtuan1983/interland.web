@@ -12,6 +12,7 @@ use App\Http\Controllers\BannersController;
 use App\Http\Controllers\FeIndexController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PartnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +40,9 @@ Route::resources([
     'users' => UserController::class,
     'posts' => PostController::class,
     'categories' => CategoryController::class,
-    'pages'=>PageController::class,
-    'banners'=>BannerController::class
+    'pages'=> PageController::class,
+    'banners'=> BannerController::class,
+    'partners' => PartnerController::class
 ]);
 
 Route::get('/',[FeIndexController::class,'index'])->name('homepage.index');

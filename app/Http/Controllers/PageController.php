@@ -34,7 +34,13 @@ class PageController extends Controller
     public function edit(Page $page)
     {
         return view('pages.edit', [
-            'pages' => $page
+            'page' => $page
+        ]);
+    }
+    public function show(Page $page)
+    {
+        return view('pages.show', [
+            'page' => $page
         ]);
     }
     public function update(StorePageRequest $request, Page $page)

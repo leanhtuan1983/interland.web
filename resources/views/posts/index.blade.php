@@ -29,14 +29,14 @@
                     <td>{{ $post->pages->name }}</td>
                     <td>{{ Str::words($post->summary, 50, '...') }}</td>
                     <td>
-                        <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                        <form action="{{ route('posts.destroy', $post) }}" method="post">
                             @csrf
                             @method('DELETE')
 
-                            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Show</a>
+                            <a href="{{ route('posts.show', $post) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Show</a>
 
                             @can('edit-post')
-                                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
+                                <a href="{{ route('posts.edit', $post) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
                             @endcan
 
                             @can('delete-post')

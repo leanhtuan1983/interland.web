@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\Post;
+use App\Models\Category;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use App\Models\Category;
-use App\Models\Page;
-use Illuminate\Support\Facades\Auth;
 
 
 class PostController extends Controller
@@ -26,7 +27,7 @@ class PostController extends Controller
     public function index()
     {
         return view('posts.index', [
-            'posts' => Post::latest()->paginate(3)
+            'posts' => Post::latest()->paginate(10)
         ]);
     }
 
@@ -45,24 +46,37 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //   Get validated data
+        // Get validated data
         $data = $request->validated();
-
+    
         // Handle image upload if present
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $data['image'] = $request->file('image')->store('images', 'public');
-            }
-
+        }
+    
+        // Tạo slug từ title
+        $slug = Str::slug($data['title']);
+    
+        // Đảm bảo slug là duy nhất
+        $originalSlug = $slug;
+        $counter = 1;
+    
+        while (Post::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+        }
+    
         // Create a new post
         Post::create([
             'title' => $data['title'],
+            'slug' => $slug, // Slug duy nhất
             'summary' => $data['summary'],
             'category_id' => $data['category_id'],
             'page_id' => $data['page_id'],
             'content' => $data['content'],
             'author' => Auth::user()->name, // Current logged-in user's name
             'img_path' => $data['image'] ?? null, // Save image path if available
-            ]);
+        ]);
     
         // Redirect with success message
         return redirect()->route('posts.index')->with('success', 'New post added successfully!');

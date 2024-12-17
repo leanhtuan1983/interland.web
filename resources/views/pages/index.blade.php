@@ -23,7 +23,7 @@
                     <td>{{ $page->name }}</td>
                     <td>{{ $page->description }}</td>
                     <td>
-                        <form action="{{ route('pages.destroy', $page->id) }}" method="page">
+                        <form action="{{ route('pages.destroy', $page->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
 

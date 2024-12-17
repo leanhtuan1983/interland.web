@@ -51,7 +51,7 @@
                         </div>
                         <div class="card col-2">
                             <div class="card-header text-center">
-                                <a class="text-decoration-none" href="">PARTNER</a>
+                                <a class="text-decoration-none" href="{{ route('partners.index') }}">PARTNER</a>
                             </div>
                             <div class="card-body m-auto">
                             <i class="bi bi-people" style="font-size: 100px;"></i>

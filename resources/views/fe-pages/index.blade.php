@@ -1,17 +1,17 @@
 @extends('fe-pages.layouts.app')
 @section('content')
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    @foreach ($banners as $banner )
-    <div class="carousel-item active">
-      <img src="{{ url('storage/'.$banner->img_path) }}" class="d-block w-100" alt="...">
+<div class="carousel-indicators">
+      @foreach ($banners as $index => $banner)
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}" aria-current="{{ $index == 0 ? 'true' : 'false' }}" aria-label="Slide {{ $index + 1 }}"></button>
+      @endforeach
     </div>
-    @endforeach
+  <div class="carousel-inner">
+    @foreach ($banners as $index => $banner)
+        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+          <img src="{{ url('storage/'.$banner->img_path) }}" alt="{{ $banner->name }}" class="d-block w-100">
+        </div>
+      @endforeach
   </div>
 </div>
 <div class="container mt-4 d-flex justify-content-between" style="width:1294px;">
@@ -59,7 +59,6 @@
         </div>
     </div>
 </div>
-<div class="container mt-4 d-flex justify-content-between" style="width:1294px;">
-    
+<div class="container mt-4 d-flex justify-content-between" style="width:1294px;">   
 </div>
 @endsection
