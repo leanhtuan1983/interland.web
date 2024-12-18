@@ -1,15 +1,15 @@
 <div class="container-fluid d-flex justify-content-center" style="background:rgb(85,85,85)">
-    <div class="container mt-4 text-white d-flex justify-content-between" style="width:1200px;">
+    <div class="container mt-4 text-white d-flex justify-content-between" style="width:1100px;">
         <div class="col-3 p-2">
             <p class="fs-5">Lĩnh vực hoạt động</p>
             <p class="fs-6 fw-light">
             Chúng tôi tự tin sẽ đem đến Khách hàng và Đối tác giá trị tối ưu nhất...
             </p>
             <ul class="list-unstyled">
-                <li class="border-bottom pb-2"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Thương mại</a></li>
-                <li class="border-bottom pb-2 pt-1"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Dịch vụ GTGT</a></li>
-                <li class="border-bottom pb-2 pt-1"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Bất động sản</a></li>
-                <li class="border-bottom pb-2 pt-1"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Trung tâm Viễn thông</a></li>
+                <li class="border-bottom pb-1"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Thương mại</a></li>
+                <li class="border-bottom pb-1 pt-2"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Dịch vụ GTGT</a></li>
+                <li class="border-bottom pb-1 pt-2"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Bất động sản</a></li>
+                <li class="border-bottom pb-1 pt-2"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Trung tâm Viễn thông</a></li>
             </ul>
         </div>
         <div class="col-3 p-2">

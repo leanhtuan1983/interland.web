@@ -16,4 +16,8 @@ class FeIndexController extends Controller
     {
         return view('fe-pages.index',['banners'=>Banner::all()])->with('partners',$this->partner);
     }
+    public function introduce()
+    {
+        return view('fe-pages.introduce')->with('partners',$this->partner);
+    }
 }

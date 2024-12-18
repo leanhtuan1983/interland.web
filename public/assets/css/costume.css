@@ -1,6 +1,149 @@
+/* CSS cho top header */
 .topnav {
+    
     height: 36px;
     background: #d0d0d0;
     color: #454343;
     font-size: 14px;
+}
+/* CSS tiêu đề trang */
+.mybreadcrumb {
+    background: radial-gradient(
+            circle,
+            rgba(117, 84, 163, 0.7) 0%,
+            rgba(117, 84, 163, 0.9948354341736695) 40%
+        ),
+        /* Lớp phủ gradient */
+            url("/assets/images/banners/1730689956_banner-bds.jpg"); /* Hình ảnh nền */
+    background-size: cover; /* Đảm bảo hình ảnh phủ đầy khung */
+    background-position: center; /* Căn giữa hình ảnh */
+    background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+}
+/* CSS button */
+.costume-button {
+    padding: 14px 35px 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+    display: inline-block;
+    background: #eb891a;
+    text-decoration: none;
+}
+/* CSS menu chính */
+.main-nav {
+    width: 1100px;
+}
+/* CSS Timeline - About us */
+/* Timeline */
+.time {
+    position: relative;
+    width: 100px;
+    height: 10px;
+    background: #eaeaea;
+    border-radius: 6px;
+    padding: 26px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 20px;
+}
+.time:hover {
+    position: relative;
+    width: 100px;
+    height: 10px;
+    background: rgb(99, 35, 111);
+    border-radius: 6px;
+    padding: 26px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.time:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 14px solid #eaeaea;
+    border-right: 10px solid transparent;
+    border-top: 12px solid #eaeaea;
+    border-bottom: 20px solid transparent;
+    left: 32px;
+    bottom: -20px;
+}
+.time:hover::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 14px solid rgb(99, 35, 111);
+    border-right: 10px solid transparent;
+    border-top: 12px solid rgb(99, 35, 111);
+    border-bottom: 20px solid transparent;
+    left: 32px;
+    bottom: -20px;
+}
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 20px 0px;
+    margin-bottom: 20px;
+}
+
+.timeline-item {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.timeline-item .dot {
+    border: 4px solid lightgrey;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 10px;
+    margin-left: 22px;
+}
+
+.timeline-item:hover .dot {
+    background-color: rgb(99, 35, 111);
+}
+
+.timeline-item .time {
+    font-size: 10px;
+    margin-top: 10px;
+    line-height: 0px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 118px;
+    border: 3px solid lightgrey;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background-color: #ddd;
+    z-index: 1;
+}
+
+.event-details {
+    width: 1040px;
+    margin-top: -20px;
+}
+
+.event-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.event-content.active {
+    display: block;
+    box-shadow: 5px 10px 8px #888888;
 }
