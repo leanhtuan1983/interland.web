@@ -14,5 +14,9 @@ class Page extends Model
     public function post()
     {
         return $this->hasMany(Post::class);
+    }
+    public function cates()
+    {
+        return $this->hasMany(Category::class);
     }  
 }

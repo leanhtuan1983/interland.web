@@ -12,6 +12,7 @@
                 <tr>
                 <th scope="col">S#</th>
                 <th scope="col">Name</th>
+                <th scope="col">Page view</th>
                 <th scope="col">Description</th>
                 <th scope="col">Action</th>
                 </tr>
@@ -21,6 +22,7 @@
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $category->name }}</td>
+                    <td>{{ $category->page->name }}</td>
                     <td>{{ $category->description }}</td>
                     <td>
                         <form action="{{ route('categories.destroy', $category->id) }}" method="post">

@@ -27,6 +27,16 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
+                        <label for="page_id" class="col-md-4 col-form-label text-md-end text-start">Page</label>
+                        <div class="col-md-6">
+                          <select name="page_id" id="page_id" class="form-control">
+                            @foreach ($pages as $page)
+                                <option value="{{ $page->id }}">{{ $page->name }}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
                         <label for="image" class="col-md-4 col-form-label text-md-end text-start">Image</label>
                         <div class="col-md-6">
                         <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">

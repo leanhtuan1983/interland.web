@@ -1,6 +1,5 @@
 /* CSS cho top header */
 .topnav {
-    
     height: 36px;
     background: #d0d0d0;
     color: #454343;
@@ -22,6 +21,16 @@
 /* CSS button */
 .costume-button {
     padding: 14px 35px 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+    display: inline-block;
+    background: #eb891a;
+    text-decoration: none;
+}
+.costume-button-index {
+    padding: 14px 20px 10px 20px;
+    margin: 14px 14px;
     border-radius: 8px;
     font-size: 16px;
     color: #fff;

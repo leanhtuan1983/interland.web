@@ -9,10 +9,14 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name','description','image_path'
+        'name','description','image_path','page_id'
     ];
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+    public function page()
+    {
+        return $this->belongsTo(Page::class,'page_id');
     }   
 }

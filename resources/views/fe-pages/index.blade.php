@@ -21,11 +21,11 @@
         <p class="mt-3">Với đội ngũ nhân sự ưu tú, môi trường làm việc năng động, đề cao giá trị văn hóa doanh nghiệp,<br>theo chúng tôi tự tin sẽ đem đến Khách hàng và Đối tác giá trị tối ưu nhất...</p>
     </div>
     <div class="col-2 d-flex justify-content-end" style="height:80px; margin-right:100px">
-        <button type="button" class="btn btn-warning btn-lg text-white mt-4">Chi tiết<i class="bi bi-chevron-right ms-2"></i></button>
+      <a class=" ms-2 costume-button-index" href="">Chi tiết<i class="bi bi-chevron-right ms-2"></i></a> 
     </div>
 </div>
 <div class="container mt-2 d-flex justify-content-between" style="width:1294px;background: #e1e1e1">
-    <div class="row mt-5 mb-4" style="margin-left:100px; margin-right:100px;">
+    <div class="row mt-5 mb-4" style="margin-left:100px; margin-right:100px; font-size:14px;">
         <div class="col-3 justify-content-between">
            <img src="{{ asset('assets/images/banners/ThuongMai.jpg')}}" style="width: 247px; height:156px" alt="">
            <p class="h5 mt-4">Thương Mại</p>

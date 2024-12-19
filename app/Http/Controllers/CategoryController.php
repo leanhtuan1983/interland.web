@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Models\Page;
 
 class CategoryController extends Controller
 {
@@ -25,7 +26,7 @@ class CategoryController extends Controller
     }
     public function create()
     {
-        return view('categories.create');
+        return view('categories.create',['pages' => Page::all()]);
     }
     public function store(StoreCategoryRequest $request)
     {
@@ -45,6 +46,7 @@ class CategoryController extends Controller
         Category::create([
             'name' => $data['name'],
             'description' => $data['description'],
+            'page_id' => $data['page_id'],
             'image_path' => $data['image'] ?? null, // Nếu có hình ảnh, lưu đường dẫn, nếu không có thì null
         ]);
 
