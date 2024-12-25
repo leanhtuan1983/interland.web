@@ -14,11 +14,17 @@ class FeIndexController extends Controller
     protected $fields;
     protected $projects;
     protected $fieldItems;
+    protected $projectItems;
+    protected $typicalFields;
+    protected $typicalProjects;
     public function __construct() {
         $this->partner = Partner::all();
         $this->fields = Category::where('page_id',1)->get();
         $this->projects = Category::where('page_id',2)->get();
         $this->fieldItems = Post::with('categories')->where('page_id', 1)->get()->groupBy('categories.name');
+        $this->projectItems = Post::with('categories')->where('page_id', 2)->get()->groupBy('categories.name');
+        $this->typicalFields = Post::where('page_id',1)->where('category_id',6)->take(6)->get();
+        $this->typicalProjects = Post::where('page_id',2)->where('category_id',8)->take(6)->get();
 
     }
     public function index()
@@ -46,7 +52,20 @@ class FeIndexController extends Controller
             'partners' => $this->partner,
             'projects' => $this->projects,
             'fields' => $this->fields,
-            'fieldItems' => $this->fieldItems
+            'fieldItems' => $this->fieldItems,
+            'typicalFields' => $this->typicalFields
+        ]);
+    }
+    public function showAllProject()
+    {
+        return view('fe-pages.project',[
+            'banners' => Banner::all(),
+            'partners' => $this->partner,
+            'projects' => $this->projects,
+            'fields' => $this->fields,
+            'fieldItems' => $this->fieldItems,
+            'projectItems' => $this->projectItems,
+            'typicalProjects' => $this->typicalProjects
         ]);
     }
 }

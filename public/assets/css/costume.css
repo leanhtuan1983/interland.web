@@ -156,3 +156,12 @@
     display: block;
     box-shadow: 5px 10px 8px #888888;
 }
+.border-costume {
+    border-color: #454343;
+}
+.post-group {
+    padding: 0px;
+}
+.post-title {
+    margin-bottom: 2px;
+}

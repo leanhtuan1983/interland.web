@@ -48,4 +48,5 @@ Route::resources([
 Route::get('/',[FeIndexController::class,'index'])->name('home');
 Route::get('/gioi-thieu',[FeIndexController::class,'introduce'])->name('introduce');
 Route::get('/settings',[SettingController::class,'index'])->name('settings');
-Route::get('/thuong-mai',[FeIndexController::class,'showAllField'])->name('all-fields');
+Route::get('/linh-vuc-hoat-dong',[FeIndexController::class,'showAllField'])->name('all-fields');
+Route::get('/du-an',[FeIndexController::class,'showAllProject'])->name('all-projects');

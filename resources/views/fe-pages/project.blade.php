@@ -9,7 +9,7 @@
 <div class="container justify-content-center" style="width:1100px;" >
     <div class="row d-flex justify-content-between">
         <div class="col-9 mt-4">
-            @foreach ($fieldItems as $categoryName => $posts)
+            @foreach ($projectItems as $categoryName => $posts)
             @php
                 $category = \App\Models\Category::where('name', $categoryName)->first();
             @endphp
@@ -37,7 +37,7 @@
             @endforeach
         </div>
         <div class="col-3 d-block mt-4">
-            @include('fe-pages.partials.field-sidebar')
+            @include('fe-pages.partials.project-sidebar')
         </div>
     </div> 
 </div>

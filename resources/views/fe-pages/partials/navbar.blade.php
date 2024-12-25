@@ -59,7 +59,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="" class="nav-link text-dark {{ Request::is('du-an*') ? 'active' : '' }}" id="navbarDropdown" role="button">
+                    <a href="{{ route('all-projects')}}" class="nav-link text-dark {{ Request::routeIs('all-projects') ? 'active' : '' }}" id="navbarDropdown" role="button">
                         DỰ ÁN
                     </a>
                     <ul class="dropdown-menu">

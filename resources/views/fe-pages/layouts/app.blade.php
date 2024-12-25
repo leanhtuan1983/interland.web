@@ -21,7 +21,7 @@
     }
 </style>
 </head>
-<body>
+<body class="d-block">
     @include('fe-pages.partials.topnav')
     @include('fe-pages.partials.navbar')
     @yield('content')
