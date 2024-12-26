@@ -165,3 +165,11 @@
 .post-title {
     margin-bottom: 2px;
 }
+/* CSS sidebar post */
+.item-nav {
+    border-bottom: 1px dashed #888888;
+}
+.item-field {
+    margin-bottom: 4px;
+    margin-top: 8px;
+}

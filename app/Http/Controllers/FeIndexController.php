@@ -17,6 +17,7 @@ class FeIndexController extends Controller
     protected $projectItems;
     protected $typicalFields;
     protected $typicalProjects;
+    protected $posts;
     public function __construct() {
         $this->partner = Partner::all();
         $this->fields = Category::where('page_id',1)->get();
@@ -25,7 +26,7 @@ class FeIndexController extends Controller
         $this->projectItems = Post::with('categories')->where('page_id', 2)->get()->groupBy('categories.name');
         $this->typicalFields = Post::where('page_id',1)->where('category_id',6)->take(6)->get();
         $this->typicalProjects = Post::where('page_id',2)->where('category_id',8)->take(6)->get();
-
+      
     }
     public function index()
     {
@@ -39,7 +40,6 @@ class FeIndexController extends Controller
     public function introduce()
     {
         return view('fe-pages.introduce', [
-            'banners' => Banner::all(),
             'partners' => $this->partner,
             'projects' => $this->projects,
             'fields' => $this->fields
@@ -48,7 +48,6 @@ class FeIndexController extends Controller
     public function showAllField()
     {
         return view('fe-pages.field',[
-            'banners' => Banner::all(),
             'partners' => $this->partner,
             'projects' => $this->projects,
             'fields' => $this->fields,
@@ -59,13 +58,35 @@ class FeIndexController extends Controller
     public function showAllProject()
     {
         return view('fe-pages.project',[
-            'banners' => Banner::all(),
             'partners' => $this->partner,
             'projects' => $this->projects,
             'fields' => $this->fields,
             'fieldItems' => $this->fieldItems,
             'projectItems' => $this->projectItems,
             'typicalProjects' => $this->typicalProjects
+        ]);
+    }
+    public function viewFieldItemPost(Post $post)
+    {
+        $excludedPosts = Post::where('category_id',$post->category_id)->where('slug', '!=', $post->slug)->pluck('title');
+        return view('fe-pages.fieldItemPost', [
+            'partners' => $this->partner,
+            'projects' => $this->projects,
+            'fields' => $this->fields,
+            'fieldItems' => $this->fieldItems,
+            'projectItems' => $this->projectItems,
+            'typicalProjects' => $this->typicalProjects,
+            'typicalFields' => $this->typicalFields,
+            'excludedPosts' => $excludedPosts,
+            'post' => $post,
+        ]);
+    }
+    public function costumer()
+    {
+        return view('fe-pages.partner',[
+            'partners' => $this->partner,
+            'projects' => $this->projects,
+            'fields' => $this->fields,
         ]);
     }
 }

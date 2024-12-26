@@ -1,9 +1,9 @@
 @extends('fe-pages.layouts.app')
-@section('title',config('pages.title.field'))
+@section('title',config('pages.title.project'))
 @section('content')
 <div class="container-fluid d-flex justify-content-center text-white mybreadcrumb">
     <div class="container d-flex justify-content-start text-white" style="width:1100px; height:102px;">
-    <h3 class="my-auto">Lĩnh vực hoạt động</h3>
+    <h3 class="my-auto">Dự án</h3>
     </div>
 </div>
 <div class="container justify-content-center" style="width:1100px;" >

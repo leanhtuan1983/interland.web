@@ -50,3 +50,5 @@ Route::get('/gioi-thieu',[FeIndexController::class,'introduce'])->name('introduc
 Route::get('/settings',[SettingController::class,'index'])->name('settings');
 Route::get('/linh-vuc-hoat-dong',[FeIndexController::class,'showAllField'])->name('all-fields');
 Route::get('/du-an',[FeIndexController::class,'showAllProject'])->name('all-projects');
+Route::get('/{post}',[FeIndexController::class,'viewFieldItemPost'])->name('viewFieldItemPost');
+Route::get('/khach-hang',[FeIndexController::class,'costumer'])->name('costumer');

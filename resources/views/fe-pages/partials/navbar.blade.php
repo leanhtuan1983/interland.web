@@ -73,7 +73,7 @@
                     <a href="#" class="nav-link text-dark {{ Request::is('hinh-anh*') ? 'active' : '' }}">HÌNH ẢNH</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-dark {{ Request::is('khach-hang*') ? 'active' : '' }}">KHÁCH HÀNG</a>
+                    <a href="{{ route('costumer')}}" class="nav-link text-dark {{ Request::routeIs('costumer') ? 'active' : '' }}">KHÁCH HÀNG</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link text-dark {{ Request::is('lien-he*') ? 'active' : '' }}">LIÊN HỆ</a>
