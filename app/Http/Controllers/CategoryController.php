@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-use App\Models\Page;
 
 class CategoryController extends Controller
 {
@@ -41,10 +42,18 @@ class CategoryController extends Controller
         // Thêm đường dẫn ảnh vào mảng $data
         $data['image'] = $imagePath;
         }
+          // Tạo slug từ title
+        $slug = Str::slug($data['name']);
+
+        // Đảm bảo slug là duy nhất (nếu cần)
+        if (Category::where('slug', $slug)->exists()) {
+        $slug .= '-' . time(); // Thêm timestamp để tránh trùng slug
+    }
 
         // Lưu dữ liệu vào database
         Category::create([
             'name' => $data['name'],
+            'slug' => $slug, // Thêm slug vào đây
             'description' => $data['description'],
             'page_id' => $data['page_id'],
             'image_path' => $data['image'] ?? null, // Nếu có hình ảnh, lưu đường dẫn, nếu không có thì null

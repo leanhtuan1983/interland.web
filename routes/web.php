@@ -44,11 +44,13 @@ Route::resources([
     'banners'=> BannerController::class,
     'partners' => PartnerController::class
 ]);
-
+Route::get('/khach-hang',[FeIndexController::class,'viewCostumer'])->name('view-costumer');
 Route::get('/',[FeIndexController::class,'index'])->name('home');
 Route::get('/gioi-thieu',[FeIndexController::class,'introduce'])->name('introduce');
 Route::get('/settings',[SettingController::class,'index'])->name('settings');
 Route::get('/linh-vuc-hoat-dong',[FeIndexController::class,'showAllField'])->name('all-fields');
+Route::get('/linh-vuc-hoat-dong/{slug}',[FeIndexController::class,'showCategoryField'])->name('category-field');
 Route::get('/du-an',[FeIndexController::class,'showAllProject'])->name('all-projects');
 Route::get('/{post}',[FeIndexController::class,'viewFieldItemPost'])->name('viewFieldItemPost');
-Route::get('/khach-hang',[FeIndexController::class,'costumer'])->name('costumer');
+
+

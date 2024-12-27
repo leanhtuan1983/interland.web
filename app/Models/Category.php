@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    public function getRouteKeyName()
+    {
+        return 'slug'; 
+    }
     protected $fillable = [
-        'name','description','image_path','page_id'
+        'name','slug','description','image_path','page_id'
     ];
     public function posts()
     {

@@ -53,7 +53,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         @foreach ($fields as $field)
-                            <li><a class="dropdown-item" href="">{{ $field->name }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('category-field',$field->slug) }}">{{ $field->name }}</a></li>
                             <li><hr class="dropdown-divider"></li>
                         @endforeach
                     </ul>
@@ -73,7 +73,7 @@
                     <a href="#" class="nav-link text-dark {{ Request::is('hinh-anh*') ? 'active' : '' }}">HÌNH ẢNH</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('costumer')}}" class="nav-link text-dark {{ Request::routeIs('costumer') ? 'active' : '' }}">KHÁCH HÀNG</a>
+                    <a href="{{ route('view-costumer') }}" class="nav-link text-dark {{ Request::routeIs('view-costumer') ? 'active' : '' }}">KHÁCH HÀNG</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link text-dark {{ Request::is('lien-he*') ? 'active' : '' }}">LIÊN HỆ</a>

@@ -26,7 +26,6 @@ class FeIndexController extends Controller
         $this->projectItems = Post::with('categories')->where('page_id', 2)->get()->groupBy('categories.name');
         $this->typicalFields = Post::where('page_id',1)->where('category_id',6)->take(6)->get();
         $this->typicalProjects = Post::where('page_id',2)->where('category_id',8)->take(6)->get();
-      
     }
     public function index()
     {
@@ -55,6 +54,25 @@ class FeIndexController extends Controller
             'typicalFields' => $this->typicalFields
         ]);
     }
+    public function showCategoryField($slug)
+    {
+          // Tìm category bằng slug
+            $category = Category::where('slug', $slug)->firstOrFail(); 
+
+            // Lấy ID của category
+            $cate_id = $category->id;
+
+            // Truy vấn các bài viết theo category_id
+            $posts = Post::where('category_id', $cate_id)->get();
+        return view('fe-pages.categoryField',[
+            'partners' => $this->partner,
+            'typicalProjects' => $this->typicalProjects,
+            'projects' => $this->projects,
+            'fields' => $this->fields,
+            'posts' => $posts,
+            'category' => $category
+        ]);
+    }
     public function showAllProject()
     {
         return view('fe-pages.project',[
@@ -81,12 +99,16 @@ class FeIndexController extends Controller
             'post' => $post,
         ]);
     }
-    public function costumer()
+    public function viewCostumer()
     {
-        return view('fe-pages.partner',[
+        return view('fe-pages.view-costumer',[
             'partners' => $this->partner,
             'projects' => $this->projects,
             'fields' => $this->fields,
+            'fieldItems' => $this->fieldItems,
+            'projectItems' => $this->projectItems,
+            'typicalProjects' => $this->typicalProjects,
+            'typicalFields' => $this->typicalFields,
         ]);
     }
 }

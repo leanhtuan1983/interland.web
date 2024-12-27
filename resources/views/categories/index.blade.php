@@ -25,14 +25,14 @@
                     <td>{{ $category->page->name }}</td>
                     <td>{{ $category->description }}</td>
                     <td>
-                        <form action="{{ route('categories.destroy', $category->id) }}" method="post">
+                        <form action="{{ route('categories.destroy', $category) }}" method="post">
                             @csrf
                             @method('DELETE')
 
-                            <a href="{{ route('categories.show', $category->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Show</a>
+                            <a href="{{ route('categories.show', $category) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Show</a>
 
                             @can('edit-category')
-                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
+                                <a href="{{ route('categories.edit', $category) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
                             @endcan
 
                             @can('delete-category')
