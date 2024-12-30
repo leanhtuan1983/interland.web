@@ -109,11 +109,47 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post)  
     {
-        $post->update($request->all());
-        return redirect()->back()
-                ->withSuccess('Post updated successfully.');
+        // Get validated data
+        $data = $request->validated();
+
+        // Handle image upload if present
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+        // Delete old image if it exists
+        if ($post->img_path && file_exists(storage_path('app/public/' . $post->img_path))) {
+            unlink(storage_path('app/public/' . $post->img_path));
+        }
+
+        // Store new image
+        $data['img_path'] = $request->file('image')->store('images', 'public');
+        }
+
+        // Generate unique slug
+        $originalSlug = Str::slug($data['title']);
+        $slug = $originalSlug;
+        $counter = 1;
+
+        while (Post::where('slug', $slug)->where('id', '!=', $post->id)->exists()) {
+            $slug = $originalSlug . '-' . $counter;
+            $counter++;
+            }
+        $data['slug'] = $slug;
+
+        // Update post
+        $post->update([
+            'title' => $data['title'],
+            'slug' => $data['slug'], // Slug duy nhất
+            'summary' => $data['summary'],
+            'category_id' => $data['category_id'],
+            'page_id' => $data['page_id'],
+            'content' => $data['content'],
+            'author' => Auth::user()->name, // Current logged-in user's name
+            'img_path' => $data['img_path'] ?? $post->img_path, // Update image path if available
+        ]);
+
+        // Redirect with success message
+        return redirect()->route('posts.index')->with('success', 'Post updated successfully!');
     }
 
     /**

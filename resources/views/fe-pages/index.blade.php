@@ -1,3 +1,4 @@
+<!-- Trang chủ -->
 @extends('fe-pages.layouts.app')
 @section('title',config('pages.title.home'))
 @section('content')

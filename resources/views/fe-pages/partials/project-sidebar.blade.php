@@ -1,4 +1,4 @@
-
+<!-- Menu phải của trang Dự án -->
 <p class="h4 mb-4 border-bottom border-costume" style="color: rgb(99, 35, 111)">Lĩnh vực hoạt động</p>
     @foreach ($fields as $field)
     <div class="d-flex mb-4">

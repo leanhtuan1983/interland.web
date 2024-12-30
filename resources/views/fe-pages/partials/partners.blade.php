@@ -1,3 +1,4 @@
+<!-- Silde logo khách hàng phía trên footer -->
 <div class="container bg-white d-flex justify-content-center" style ="width:1294px">
   <div id="multiItemCarousel" class="carousel slide col-10 mt-4 mb-4" data-bs-ride="carousel">
     <div class="carousel-inner">

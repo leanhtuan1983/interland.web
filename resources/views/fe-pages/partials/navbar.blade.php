@@ -28,6 +28,7 @@
     margin-top: 0;  /* Tùy chọn để căn chỉnh menu */
 }
 </style>
+<!-- Thanh điều hướng chính -->
 <div class="container-fluid bg-light d-flex justify-content-center py-2">
     <div class="row align-items-center justify-content-between main-nav">
         <div class="col-md-2 text-center">
@@ -64,7 +65,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         @foreach ($projects as $project)
-                            <li><a class="dropdown-item" href="">{{ $project->name }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('category-project',$project->slug) }}">{{ $project->name }}</a></li>
                             <li><hr class="dropdown-divider"></li>
                         @endforeach
                     </ul>

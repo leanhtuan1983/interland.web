@@ -1,3 +1,4 @@
+<!-- Chân trang -->
 <div class="container-fluid d-flex justify-content-center" style="background:rgb(85,85,85)">
     <div class="container mt-4 text-white d-flex justify-content-between" style="width:1100px;">
         <div class="col-3 p-2">

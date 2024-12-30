@@ -22,8 +22,12 @@ class UpdatePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:250',
-            'content' => 'required|string'
+           'title' => 'required|string|max:250',
+        'category_id' => 'required|integer|exists:categories,id',
+        'summary' => 'nullable|string',
+        'content' => 'required|string',
+        'page_id' => 'required|integer|exists:pages,id',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Optional image validation
         ];
     }
 }

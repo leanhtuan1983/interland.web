@@ -1,3 +1,4 @@
+<!-- Trang Dự án -->
 @extends('fe-pages.layouts.app')
 @section('title',config('pages.title.project'))
 @section('content')

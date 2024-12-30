@@ -35,6 +35,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+
+// Route CRUD backend
 Route::resources([
     'roles' => RoleController::class,
     'users' => UserController::class,
@@ -44,12 +46,15 @@ Route::resources([
     'banners'=> BannerController::class,
     'partners' => PartnerController::class
 ]);
+
+// Route frontend
 Route::get('/khach-hang',[FeIndexController::class,'viewCostumer'])->name('view-costumer');
 Route::get('/',[FeIndexController::class,'index'])->name('home');
 Route::get('/gioi-thieu',[FeIndexController::class,'introduce'])->name('introduce');
 Route::get('/settings',[SettingController::class,'index'])->name('settings');
 Route::get('/linh-vuc-hoat-dong',[FeIndexController::class,'showAllField'])->name('all-fields');
 Route::get('/linh-vuc-hoat-dong/{slug}',[FeIndexController::class,'showCategoryField'])->name('category-field');
+Route::get('/du-an/{slug}',[FeIndexController::class,'showCategoryProject'])->name('category-project');
 Route::get('/du-an',[FeIndexController::class,'showAllProject'])->name('all-projects');
 Route::get('/{post}',[FeIndexController::class,'viewFieldItemPost'])->name('viewFieldItemPost');
 

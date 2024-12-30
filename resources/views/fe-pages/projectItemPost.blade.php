@@ -1,4 +1,4 @@
-<!-- Hiển thị 1 bài viết của trang Lĩnh vực hoạt động -->
+<!-- Hiển thị 1 bài viết của trang Dự án -->
 @extends('fe-pages.layouts.app')
 @section('title',$post->title)
 @section('content')

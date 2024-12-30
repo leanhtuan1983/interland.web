@@ -1,3 +1,4 @@
+<!-- Trang Khách hàng -->
 @extends('fe-pages.layouts.app')
 @section('title',config('pages.title.costumer'))
 @section('content')

@@ -1,3 +1,4 @@
+<!-- Thông tin phía trên điều hướng chính -->
 <div class="container-fluid d-flex justify-content-center topnav">
     <div class="row align-items-center justify-content-between main-nav">
         <div class="col-md-6 d-flex">
@@ -10,5 +11,4 @@
             <img src="{{ asset('assets/images/united-kingdom.png') }}" style="width: 27px; height: 27px;" title="English" alt="">
         </div>
     </div>  
-    
 </div> 

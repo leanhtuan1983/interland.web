@@ -1,3 +1,4 @@
+<!-- Trang Lĩnh vực hoạt động -->
 @extends('fe-pages.layouts.app')
 @section('title', config('pages.title.field'))
 

@@ -1,3 +1,4 @@
+<!-- Menu phải của trang Lĩnh vực hoạt động -->
 <div class="row">
     <p class="h4 mb-4 border-bottom border-costume" style="color: rgb(99, 35, 111)">Dự án</p>
     @foreach ($projects as $project)
