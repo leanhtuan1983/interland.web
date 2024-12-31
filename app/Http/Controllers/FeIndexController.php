@@ -136,11 +136,22 @@ class FeIndexController extends Controller
     }
 
     // Hiển thị bài viết thuộc trang Dự án
-    public function viewProjectItemPost()
-    {
 
+    public function viewProjectItemPost(Post $post)
+    {
+        $excludedPosts = Post::where('category_id',$post->category_id)->where('slug', '!=', $post->slug)->pluck('title');
+        return view('fe-pages.projectItemPost', [
+            'partners' => $this->partner,
+            'projects' => $this->projects,
+            'fields' => $this->fields,
+            'fieldItems' => $this->fieldItems,
+            'projectItems' => $this->projectItems,
+            'typicalProjects' => $this->typicalProjects,
+            'typicalFields' => $this->typicalFields,
+            'excludedPosts' => $excludedPosts,
+            'post' => $post,
+        ]);
     }
-     
 
     // Hiển thị trang Khách hàng
     public function viewCostumer()

@@ -48,14 +48,18 @@ Route::resources([
 ]);
 
 // Route frontend
-Route::get('/khach-hang',[FeIndexController::class,'viewCostumer'])->name('view-costumer');
+
 Route::get('/',[FeIndexController::class,'index'])->name('home');
 Route::get('/gioi-thieu',[FeIndexController::class,'introduce'])->name('introduce');
-Route::get('/settings',[SettingController::class,'index'])->name('settings');
 Route::get('/linh-vuc-hoat-dong',[FeIndexController::class,'showAllField'])->name('all-fields');
+Route::get('/du-an',[FeIndexController::class,'showAllProject'])->name('all-projects');
+Route::get('/khach-hang',[FeIndexController::class,'viewCostumer'])->name('view-costumer');
+Route::get('/settings',[SettingController::class,'index'])->name('settings');
+
 Route::get('/linh-vuc-hoat-dong/{slug}',[FeIndexController::class,'showCategoryField'])->name('category-field');
 Route::get('/du-an/{slug}',[FeIndexController::class,'showCategoryProject'])->name('category-project');
-Route::get('/du-an',[FeIndexController::class,'showAllProject'])->name('all-projects');
-Route::get('/{post}',[FeIndexController::class,'viewFieldItemPost'])->name('viewFieldItemPost');
+Route::get('/view/{post}',[FeIndexController::class,'viewFieldItemPost'])->name('viewFieldItemPost');
+Route::get('/show/{post}',[FeIndexController::class,'viewProjectItemPost'])->name('viewProjectItemPost');
+
 
 

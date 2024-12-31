@@ -28,9 +28,11 @@
                             <p class="h4">{{ $categoryName }}</p>
                         </div>
                         <div class="card-body post-group">
-                            @foreach ($posts as $post)
-                                <a href="{{ route('posts.show', $post) }}" class="text-decoration-none link-dark d-block" ><i class="bi bi-chevron-double-right me-2"></i>{{ $post->title }}</a>
-                            @endforeach
+                        @foreach ($posts->take(4) as $post)
+                                    <a href="{{ route('viewProjectItemPost', $post) }}" class="text-decoration-none link-dark d-block">
+                                        <i class="bi bi-chevron-double-right me-2"></i>{{ $post->title }}
+                                    </a>
+                                @endforeach
                         </div>
                     </div>
                 </div>

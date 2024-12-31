@@ -4,7 +4,7 @@
 @section('content')
 <div class="container-fluid d-flex justify-content-center text-white mybreadcrumb">
     <div class="container d-flex justify-content-start text-white" style="width:1100px; height:102px;">
-    <h3 class="my-auto">Thương mại</h3>
+    <h3 class="my-auto">{{ $post->category->name }}</h3>
     </div>
 </div>
 <div class="container justify-content-center" style="width:1100px;" >

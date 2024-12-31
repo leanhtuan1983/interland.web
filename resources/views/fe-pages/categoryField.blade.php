@@ -14,7 +14,7 @@
         <div class="col-9 mt-4">
             @foreach ($posts as $item)
             <div class="d-flex mt-4 border-bottom border-black-50">
-                <img class="img-fluid" src="{{ url('storage/'.$item->img_path) }}" alt="" style="object-fit:cover; width: 216px; height: 90px;">
+                <img class="img-fluid" src="{{ url('storage/'.$item->img_path) }}" alt="" style="width:30%; height:40%; object-fit:cover;">
                 <div class="ms-4">
                     <p class="h4">{{ $item -> title }}</p>
                     <p class="text-black-50"><i class="bi bi-person me-2"></i>{{ $item -> author }} | <i class="bi bi-bookmark me-2"></i>{{ $item -> categories -> name }} | <i class="bi bi-clock me-2"></i>{{ Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D/M/YYYY') }} | {{ Carbon\Carbon::parse($item->created_at)->format('h:m') }}

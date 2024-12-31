@@ -26,11 +26,9 @@
         <button class="btn btn-dark btn-sm border-rounded me-2"><i class="bi bi-threads ms-3 me-3"></i>  </button> 
         <div class="mt-5">
             <h5>Các tin tức khác</h5>
-            <ul>
-                @foreach ($excludedPosts as $title)
-                <li><a href="{{ route('viewFieldItemPost', ['post' => Str::slug($title)]) }}" class="text-decoration-none text-dark">{{ $title }}</a></li>
+            @foreach ($excludedPosts as $title)
+                <li><a href="{{ route('viewProjectItemPost', ['post' => Str::slug($title)]) }}" class="text-decoration-none text-dark">{{ $title }}</a></li>
                 @endforeach
-            </ul>
         </div>
         </div>
         <div class="col-3 d-block mt-4">
