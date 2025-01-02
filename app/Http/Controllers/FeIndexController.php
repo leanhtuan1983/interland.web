@@ -77,6 +77,7 @@ class FeIndexController extends Controller
             'typicalProjects' => $this->typicalProjects,
             'projects' => $this->projects,
             'fields' => $this->fields,
+            'typicalFields' => $this->typicalFields,
             'posts' => $posts,
             'category' => $category
         ]);
@@ -129,6 +130,7 @@ class FeIndexController extends Controller
           'typicalProjects' => $this->typicalProjects,
           'projects' => $this->projects,
           'fields' => $this->fields,
+          'typicalFields' => $this->typicalFields,
           'posts' => $posts,
           'category' => $category
       ]);

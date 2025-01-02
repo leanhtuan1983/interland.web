@@ -27,7 +27,7 @@
                     <div class="col-8 mb-4">
                         <div class="card border-0">
                             <div class="card-header bg-body border-0">
-                                <p class="h4">{{ $categoryName }}</p>
+                                 <a class="h4 text-dark text-decoration-none" href="{{ route('category-field',$category->slug) }}">{{ $categoryName }}</a>
                             </div>
                             <div class="card-body post-group">
                                 @foreach ($posts->take(4) as $post)

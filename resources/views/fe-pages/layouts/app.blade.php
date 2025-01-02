@@ -35,9 +35,41 @@
     <footer>
         @include('fe-pages.partials.footer')
     </footer>
-    
+
+    <!-- Back to top button -->
+    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+        <i class="bi bi-chevron-up"></i>
+    </button>
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/js/timeline.js') }}"></script>
+    
+    <script>
+        //Get the button
+        let mybutton = document.getElementById("btn-back-to-top");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction();
+            };
+
+            function scrollFunction() {
+                if (
+                    document.body.scrollTop > 20 ||
+                    document.documentElement.scrollTop > 20
+                    ) {
+                        mybutton.style.display = "block";
+                        } else {
+                            mybutton.style.display = "none";
+                        }
+                }
+        // When the user clicks on the button, scroll to the top of the document
+        mybutton.addEventListener("click", backToTop);
+
+        function backToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            }
+    </script>
 </body>
 </html>

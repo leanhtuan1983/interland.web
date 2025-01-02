@@ -52,10 +52,9 @@
                     <a href="{{ route('all-fields') }}" class="nav-link text-dark {{ Request::routeIs('all-fields') ? 'active' : '' }}" id="navbarDropdown" role="button">
                         LĨNH VỰC HOẠT ĐỘNG
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu fs-6 costume-dropdown">
                         @foreach ($fields as $field)
-                            <li><a class="dropdown-item" href="{{ route('category-field',$field->slug) }}">{{ $field->name }}</a></li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li class="border-bottom border-secondary"><a class="dropdown-item" href="{{ route('category-field',$field->slug) }}">{{ $field->name }}</a></li>
                         @endforeach
                     </ul>
                 </li>
@@ -63,10 +62,9 @@
                     <a href="{{ route('all-projects')}}" class="nav-link text-dark {{ Request::routeIs('all-projects') ? 'active' : '' }}" id="navbarDropdown" role="button">
                         DỰ ÁN
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu fs-6 costume-dropdown">
                         @foreach ($projects as $project)
-                            <li><a class="dropdown-item" href="{{ route('category-project',$project->slug) }}">{{ $project->name }}</a></li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li class="border-bottom border-secondary"><a class="dropdown-item" href="{{ route('category-project',$project->slug) }}">{{ $project->name }}</a></li>
                         @endforeach
                     </ul>
                 </li>

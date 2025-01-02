@@ -156,6 +156,7 @@
     display: block;
     box-shadow: 5px 10px 8px #888888;
 }
+/* CSS sidebar title */
 .border-costume {
     border-color: #454343;
 }
@@ -172,4 +173,32 @@
 .item-field {
     margin-bottom: 4px;
     margin-top: 8px;
+}
+a.item-field.active {
+    color: rgb(99, 35, 111) !important; /* Màu sắc active */
+    font-weight: bold;
+}
+/* CSS Button back to top */
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+}
+/* CSS dropdown menu */
+.costume-dropdown {
+    background: #680d6f;
+}
+.costume-dropdown a {
+    color: #fff;
+}
+.dropdown-menu.costume-dropdown {
+    margin: 0; /* Loại bỏ margin của ul */
+    padding: 0; /* Loại bỏ padding của ul (nếu có) */
+}
+
+.dropdown-menu.costume-dropdown > li {
+    margin: 0; /* Loại bỏ margin của li */
+    padding: 0; /* Điều chỉnh padding nếu cần */
+    border: none; /* Nếu không muốn có đường viền giữa các li */
 }

@@ -4,7 +4,7 @@
 @section('content')
 <div class="container-fluid d-flex justify-content-center text-white mybreadcrumb">
     <div class="container d-flex justify-content-start text-white" style="width:1100px; height:102px;">
-    <h3 class="my-auto">Thương mại</h3>
+    <h3 class="my-auto">{{ $post->categories->name }}</h3>
     </div>
 </div>
 <div class="container justify-content-center" style="width:1100px;" >
@@ -32,7 +32,7 @@
         </div>
         </div>
         <div class="col-3 d-block mt-4">
-            @include('fe-pages.partials.fieldItem-sidebar')
+            @include('fe-pages.partials.projectItem-sidebar')
         </div>
     </div> 
 </div>
