@@ -13,6 +13,7 @@ use App\Http\Controllers\FeIndexController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,8 @@ Route::resources([
     'categories' => CategoryController::class,
     'pages'=> PageController::class,
     'banners'=> BannerController::class,
-    'partners' => PartnerController::class
+    'partners' => PartnerController::class,
+    'photos' => PhotoController::class
 ]);
 
 // Route frontend
@@ -55,6 +57,7 @@ Route::get('/linh-vuc-hoat-dong',[FeIndexController::class,'showAllField'])->nam
 Route::get('/du-an',[FeIndexController::class,'showAllProject'])->name('all-projects');
 Route::get('/khach-hang',[FeIndexController::class,'viewCostumer'])->name('view-costumer');
 Route::get('/settings',[SettingController::class,'index'])->name('settings');
+Route::get('/hinh-anh',[FeIndexController::class,'gallery'])->name('gallery');
 
 Route::get('/linh-vuc-hoat-dong/{slug}',[FeIndexController::class,'showCategoryField'])->name('category-field');
 Route::get('/du-an/{slug}',[FeIndexController::class,'showCategoryProject'])->name('category-project');

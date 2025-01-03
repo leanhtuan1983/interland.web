@@ -35,6 +35,10 @@ class PermissionSeeder extends Seeder
             'edit-pages',
             'delete-pages',
 
+            'create-photo',
+            'edit-photo',
+            'delete-photo',
+
             'index-settings',
 
         ];

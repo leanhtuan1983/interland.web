@@ -14,7 +14,7 @@
         <div class="col-9 mt-4">
             @foreach ($posts as $item)
             <div class="d-flex mt-4 border-bottom border-black-50">
-                <img class="img-fluid" src="{{ url('storage/'.$item->img_path) }}" alt="" style="width:30%; height:40%; object-fit:cover;">
+                <img class="img-fluid mb-4" src="{{ url('storage/'.$item->img_path) }}" alt="" style="width:30%; height:40%; object-fit:cover;">
                 <div class="ms-4">
                     <a class="text-decoration-none text-dark h4" href="{{ route('viewFieldItemPost',$item) }}">{{ $item->title }}</a>
                     <p class="text-black-50">
@@ -31,11 +31,16 @@
                 </div>      
             </div>   
             @endforeach
+             <!-- Hiển thị nút phân trang -->
+             <div class="mt-4 mb-2">
+                {{ $posts->links() }}
+            </div>
         </div>
         <div class="col-3 d-block mt-4">
             @include('fe-pages.partials.field-category-sidebar')
         </div>
     </div>
 </div>
+
 @endsection
 

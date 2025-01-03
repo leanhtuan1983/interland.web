@@ -17,7 +17,7 @@
             <div class="row mb-4 border-bottom border-costume">
                 <div class="col-4">
                     @if ($category)
-                        <img src="{{ asset('storage/' . $category->image_path) }}" alt="{{ $category->name }}" class="img-thumbnail">
+                        <img src="{{ asset('storage/' . $category->image_path) }}" alt="{{ $category->name }}" class="img-thumbnail mb-4">
                     @else
                         <img src="{{ asset('path/to/default/image.jpg') }}" alt="No image" class="img-thumbnail">
                     @endif

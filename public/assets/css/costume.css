@@ -200,5 +200,28 @@ a.item-field.active {
 .dropdown-menu.costume-dropdown > li {
     margin: 0; /* Loại bỏ margin của li */
     padding: 0; /* Điều chỉnh padding nếu cần */
-    border: none; /* Nếu không muốn có đường viền giữa các li */
+    border-bottom: 1px solid #8a188a !important; /* Đường viền */
+}
+
+/* CSS pagination */
+.pagination .page-link {
+    color: #fff;
+    background-color: #eb891a;
+    border-color: #eb891a;
+}
+
+.pagination .page-link:hover {
+    background-color: #d6a163;
+    border-color: #d6a163;
+}
+
+.pagination .active .page-link {
+    color: #fff;
+    background-color: #8a188a;
+    border-color: #8a188a;
+}
+
+.pagination .disabled .page-link {
+    background-color: #d6d8db;
+    color: #6c757d;
 }

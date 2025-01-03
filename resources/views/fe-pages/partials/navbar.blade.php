@@ -69,7 +69,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-dark {{ Request::is('hinh-anh*') ? 'active' : '' }}">HÌNH ẢNH</a>
+                    <a href="{{ route('gallery') }}" class="nav-link text-dark {{ Request::routeIs('gallery') ? 'active' : '' }}">HÌNH ẢNH</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('view-costumer') }}" class="nav-link text-dark {{ Request::routeIs('view-costumer') ? 'active' : '' }}">KHÁCH HÀNG</a>

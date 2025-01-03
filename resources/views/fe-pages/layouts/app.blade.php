@@ -37,7 +37,7 @@
     </footer>
 
     <!-- Back to top button -->
-    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-secondary btn-floating btn-lg" id="btn-back-to-top">
         <i class="bi bi-chevron-up"></i>
     </button>
  

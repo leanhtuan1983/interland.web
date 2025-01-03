@@ -12,9 +12,10 @@
     @foreach ($typicalFields as $typicalField)
     <div class="d-flex ms-4 mb-4">
         <img src="{{ asset('storage/' . $typicalField->img_path) }}" alt="{{ $typicalField->name }}" class="img-fluid" style="width:82px; height:auto; object-fit:cover">
-        <p class="ms-4 post-title">{{ Str::words($typicalField->title, 10, '...') }}</br>
-            <span class="text-black-50">{{ Carbon\Carbon::parse($typicalField->created_at)->format('d/m/y') }}</span>
-        </p>
+        <a class="ms-4 text-decoration-none text-dark post-title" href="{{ route('viewFieldItemPost',$typicalField) }}">
+                {{ Str::words($typicalField->title, 10, '...') }}<br>
+                <span class="text-black-50">{{ Carbon\Carbon::parse($typicalField->created_at)->format('d/m/y') }}</span>
+        </a> 
     </div>
     @endforeach
 </div>

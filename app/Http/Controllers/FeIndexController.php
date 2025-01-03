@@ -64,14 +64,14 @@ class FeIndexController extends Controller
     // Hiển thị bài viết theo category trong Lĩnh vực hoạt động
     public function showCategoryField($slug)
     {
-          // Tìm category bằng slug
-            $category = Category::where('slug', $slug)->firstOrFail(); 
+        // Tìm category bằng slug
+        $category = Category::where('slug', $slug)->firstOrFail(); 
 
-            // Lấy ID của category
-            $cate_id = $category->id;
+        // Lấy ID của category
+        $cate_id = $category->id;
 
-            // Truy vấn các bài viết theo category_id
-            $posts = Post::where('category_id', $cate_id)->get();
+        // Truy vấn các bài viết theo category_id
+        $posts = Post::where('category_id', $cate_id)->Paginate(6);
         return view('fe-pages.categoryField',[
             'partners' => $this->partner,
             'typicalProjects' => $this->typicalProjects,
@@ -124,7 +124,7 @@ class FeIndexController extends Controller
           $cate_id = $category->id;
 
           // Truy vấn các bài viết theo category_id
-          $posts = Post::where('category_id', $cate_id)->get();
+          $posts = Post::where('category_id', $cate_id)->paginate(6);
       return view('fe-pages.categoryProject',[
           'partners' => $this->partner,
           'typicalProjects' => $this->typicalProjects,
@@ -166,6 +166,14 @@ class FeIndexController extends Controller
             'projectItems' => $this->projectItems,
             'typicalProjects' => $this->typicalProjects,
             'typicalFields' => $this->typicalFields,
+        ]);
+    }
+    public function gallery()
+    {
+        return view('fe-pages.gallery',[
+            'partners' => $this->partner,
+            'projects' => $this->projects,
+            'fields' => $this->fields,
         ]);
     }
 }
