@@ -13,6 +13,6 @@ class Photo extends Model
         'url','description','album_id'
     ];
     public function albums() {
-        return $this->belongsTo(Album::class);
+        return $this->belongsTo(Album::class,'album_id');
     }
 }

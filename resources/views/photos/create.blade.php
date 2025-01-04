@@ -22,9 +22,9 @@
                     <select id="album" name="album_id" class="form-control">
                         <option value="">-- Chọn Album --</option>
                         @foreach ($albums as $album)
-                        <option value="{{ $album->id }}" {{ old('album_id') == $album->id ? 'selected' : '' }}>{{ $album->name }}</option>
+                        <option value="{{ $album->id }}" {{ old('id') == $album->id ? 'selected' : '' }}>{{ $album->name }}</option>
                         @endforeach
-                        <option value="new" {{ old('album_id') == 'new' ? 'selected' : '' }}>-- Tạo Album mới --</option>
+                        <option value="new" {{ old('id') == 'new' ? 'selected' : '' }}>-- Tạo Album mới --</option>
                     </select>
                     @error('album_id')
                         <div class="text-danger">{{ $message }}</div>
@@ -34,10 +34,12 @@
                     <label for="new-album">Tên Alum mới</label>
                     <input type="text" name="name" id="new-album" class="form-control" placeholder="Nhập tên album mới">
                 </div>
-
                 <div class="form-group mt-3">
                     <label for="photo">Upload ảnh</label>
                     <input type="file" name="photo" id="photo" class="form-control">
+                    @error('photo')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary mt-3">Lưu</button>
             </form>
@@ -58,8 +60,6 @@
     // Trigger on page load in case of validation errors
     toggleNewAlbumGroup("{{ old('album_id') }}");
 </script>  
-
-
 @endsection
 
 

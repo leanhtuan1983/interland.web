@@ -65,6 +65,9 @@
                             @canany(['create-post', 'edit-post', 'delete-post'])
                                 <li><a class="nav-link" href="{{ route('posts.index') }}">Manage Posts</a></li>
                             @endcanany
+                            @canany(['create-photo', 'edit-photo', 'delete-photo'])
+                                <li><a class="nav-link" href="{{ route('photos.index') }}">Manage Photo</a></li>
+                            @endcanany
                             @canany(['index-settings'])
                                 <li><a class="nav-link" href="{{ route('settings') }}">Settings</a></li>
                             @endcanany
