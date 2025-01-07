@@ -29,34 +29,20 @@ class PhotoController extends Controller
         return view('photos.create',['albums'=>Album::all()]);
     }
     public function store(Request $request)
-    {
-        $request->validate([
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'album_id' => [
-                'required',
-                Rule::in(array_merge(['new'], Album::pluck('id')->toArray())),
-            ],
-            'name' => 'required_if:album_id,new|string|max:255',
-        ]);
-    
-        $albumId = $request->album_id;
-        DB::transaction(function () use ($request, &$albumId) {
-            if ($albumId === 'new') {
-                $newAlbum = Album::create([
-                    'name' => $request->name,
-                    'slug' => Str::slug($request->name . '-' . uniqid()),
-                ]);
-                $albumId = $newAlbum->id;
-            }
-    
-            $photoPath = $request->file('photo')->store('images', 'public');
-            Photo::create([
-                'url' => $photoPath,
-                'album_id' => $albumId,
-            ]);
-        });
-        return redirect()->back()->with('success', 'Ảnh đã được tải lên thành công!')->with('album', $albumId);
+    {   
+        $albumId = $request->album_id; 
+        if ($albumId == 'new') { 
+            $album = Album::create([
+                'name' => $request->new_album,
+                'slug' => Str::slug($request->name . '-' . uniqid()),
+                ]); 
+            $albumId = $album->id; 
+        } 
+        if ($request->hasFile('photo')) { 
+            $path = $request->file('photo')->store('images', 'public'); 
+            Photo::create([ 'album_id' => $albumId, 'url' => $path, ]); 
+        } 
+        return redirect()->route('photos.index')->with('success', 'Photo uploaded successfully!');
     }
-    
 }
     

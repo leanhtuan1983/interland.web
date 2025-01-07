@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Album;
+use App\Models\Photo;
 use App\Models\Banner;
 use App\Models\Partner;
 use App\Models\Category;
@@ -170,10 +172,35 @@ class FeIndexController extends Controller
     }
     public function gallery()
     {
+       
+        $albumsWithPhoto = Album::select('albums.*')
+            ->addSelect(['photo_url' => Photo::select('url')
+            ->whereColumn('album_id', 'albums.id')
+            ->limit(1) // Lấy một ảnh duy nhất
+        ])
+        ->get();
+
         return view('fe-pages.gallery',[
             'partners' => $this->partner,
             'projects' => $this->projects,
             'fields' => $this->fields,
+            'albumsWithPhoto' => $albumsWithPhoto
+        ]);
+    }
+    public function showAlbum($slug) 
+    {
+        $album = Album::where('slug',$slug) -> firstOrFail();
+        // Lấy ID của category
+        $album_id = $album->id;
+
+        // Truy vấn các bài viết theo category_id
+        $photos = Photo::where('album_id', $album_id)->get();
+        return view('fe-pages.showAlbum',[
+            'partners' => $this->partner,
+            'projects' => $this->projects,
+            'fields' => $this->fields,
+            'photos' => $photos, 
+            'album' => $album
         ]);
     }
 }

@@ -22,7 +22,7 @@
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $photo->albums->name }}</td>
-                    <td><img src="{{ url('storage/'.$photo->url) }}" alt="{{ $photo->url }}" style="height: 200px;; object-fit:cover;" /></td>
+                    <td><img class="img-fluid" src="{{ url('storage/'.$photo->url) }}" alt="{{ $photo->url }}" style="width: 200px; height: auto;; object-fit:cover;" /></td>
                     <td>{{ $photo->description }}</td>
                     <td>
                         <form action="{{ route('photos.destroy', $photo->id) }}" method="POST">

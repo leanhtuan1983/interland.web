@@ -108,11 +108,11 @@
                         
                         <div class="row justify-content-center text-center mt-3">
                             <div class="col-md-12">
-                                <p>Back to homepage 
-                                    <a href="#"><strong>HOMEPAGE</strong></a>
+                                <p>Back to 
+                                    <a href="{{ route('home') }}"><strong>DASHBOARD</strong></a>
                                 </p>
                                 <p>
-                                    For More Details Visit: <a href="#"><strong>HOMEPAGE</strong></a>
+                                    Visit page: <a href="{{ route('home') }}"><strong>INTERLAND</strong></a>
                                 </p>
                             </div>
                         </div>

@@ -17,6 +17,6 @@ class Album extends Model
         return 'slug'; 
     }
     public function photos() {
-        return $this->hasMany(Photo::class);
+        return $this->hasMany(Photo::class,'album_id');
     }
 }
