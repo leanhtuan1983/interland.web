@@ -58,6 +58,7 @@ Route::get('/du-an',[FeIndexController::class,'showAllProject'])->name('all-proj
 Route::get('/khach-hang',[FeIndexController::class,'viewCostumer'])->name('view-costumer');
 Route::get('/settings',[SettingController::class,'index'])->name('settings');
 Route::get('/hinh-anh',[FeIndexController::class,'gallery'])->name('gallery');
+Route::get('/lien-he',[FeIndexController::class,'showContact'])->name('contact');
 
 Route::get('/linh-vuc-hoat-dong/{slug}',[FeIndexController::class,'showCategoryField'])->name('category-field');
 Route::get('/du-an/{slug}',[FeIndexController::class,'showCategoryProject'])->name('category-project');

@@ -203,4 +203,13 @@ class FeIndexController extends Controller
             'album' => $album
         ]);
     }
+
+    public function showContact()
+    {
+        return view('fe-pages.contact',[
+            'partners' => $this->partner,
+            'projects' => $this->projects,
+            'fields' => $this->fields
+        ]);
+    }
 }

@@ -7,6 +7,6 @@ return [
         'project' => 'Dự án',
         'gallery' => 'Album ảnh Interland',
         'costumer' => 'Khách hàng',
-        'contact' => 'Contact Page'
+        'contact' => 'Liên hệ Interland'
     ]
 ];
