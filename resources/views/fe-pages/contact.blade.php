@@ -42,20 +42,20 @@
             <p style="color: rgb(111,35,99)"><strong>Hotline: +84.24 6257 6789</strong></p>
             <p style="font-size: 14px; color:grey;"><strong>Cơ sở 2:</strong>Số 319/D3 khu Thương Mại Thuận Việt, Đường Lý Thường Kiệt, Phường 15, Quận 11, Tp. Hồ Chí Minh <br>
             Điện thoại: +84.28 6265 6789</p>
-            <p>Giờ mở cửa: 8:00 - 17:30.</p>
+            <p class="mb-0">Giờ mở cửa: 8:00 - 17:30.</p>
             <p>Email: info@interland.vn</p>
-            <p class="h3" style="border-left: 5px solid rgb(111,35,99); padding-left: 10px; margin: 20px 0;">Bất động sản</p>
-
-            <p>Hotline: 0987 177 777</p>
-            <p>Phủ sóng tòa nhà</p>
-            <p>Hotline: 0989 669 911</p>
-            <p>Dịch vụ GTGT</p>
-            <p>Hotline: +84.24 6257 6789</p>
-            <p>Thương mại</p>
-            <p>Hotline: +84.24 6257 6789</p>
+            <p class="h4 mb-0" style="border-left: 5px solid rgb(111,35,99); padding-top:0px; padding-left: 10px;">Bất động sản</p>
+            <p class ="mb-0">Hotline: 0987 177 777</p>
+            <p class="h4 mb-0" style="border-left: 5px solid rgb(111,35,99); padding-top:0px; padding-left: 10px;">Phủ sóng tòa nhà</p>
+            <p class="mb-0">Hotline: 0989 669 911</p>
+            <p class="h4 mb-0" style="border-left: 5px solid rgb(111,35,99); padding-top:0px; padding-left: 10px;">Dịch vụ GTGT</p>
+            <p class="mb-0">Hotline: +84.24 6257 6789</p>
+            <p class="h4 mb-0" style="border-left: 5px solid rgb(111,35,99); padding-top:0px; padding-left: 10px;">Thương mại</p>
+            <p class="mb-0">Hotline: +84.24 6257 6789</p>
         </div>       
     </div>
 </div>
+
 <script type="text/javascript">
     function showMap(mapNumber) {
         document.getElementById('map1').style.display = 'none';

@@ -20,6 +20,8 @@ class FeIndexController extends Controller
     protected $typicalFields;
     protected $typicalProjects;
     protected $posts;
+    protected $footerPosts;
+    protected $news;
     public function __construct() {
         $this->partner = Partner::all();
         $this->fields = Category::where('page_id',1)->get();
@@ -28,6 +30,8 @@ class FeIndexController extends Controller
         $this->projectItems = Post::with('categories')->where('page_id', 2)->get()->groupBy('categories.name');
         $this->typicalFields = Post::where('page_id',1)->where('category_id',6)->take(6)->get();
         $this->typicalProjects = Post::where('page_id',2)->where('category_id',8)->take(6)->get();
+        $this->footerPosts = Post::where('category_id',8)->take(4)->get();
+        $this->news = Post::where('category_id',14)->paginate(10);
     }
 
     // Hiển thị homepage
@@ -37,7 +41,8 @@ class FeIndexController extends Controller
             'banners' => Banner::all(),
             'partners' => $this->partner,
             'projects' => $this->projects,
-            'fields' => $this->fields
+            'fields' => $this->fields,
+            'footerPosts' => $this->footerPosts
         ]);
     }
 
@@ -47,7 +52,8 @@ class FeIndexController extends Controller
         return view('fe-pages.introduce', [
             'partners' => $this->partner,
             'projects' => $this->projects,
-            'fields' => $this->fields
+            'fields' => $this->fields,
+            'footerPosts' => $this->footerPosts
         ]);
     }
 
@@ -59,7 +65,8 @@ class FeIndexController extends Controller
             'projects' => $this->projects,
             'fields' => $this->fields,
             'fieldItems' => $this->fieldItems,
-            'typicalFields' => $this->typicalFields
+            'typicalFields' => $this->typicalFields,
+            'footerPosts' => $this->footerPosts
         ]);
     }
 
@@ -81,7 +88,8 @@ class FeIndexController extends Controller
             'fields' => $this->fields,
             'typicalFields' => $this->typicalFields,
             'posts' => $posts,
-            'category' => $category
+            'category' => $category,
+            'footerPosts' => $this->footerPosts
         ]);
     }
 
@@ -99,6 +107,7 @@ class FeIndexController extends Controller
             'typicalFields' => $this->typicalFields,
             'excludedPosts' => $excludedPosts,
             'post' => $post,
+            'footerPosts' => $this->footerPosts
         ]);
     }
 
@@ -112,7 +121,8 @@ class FeIndexController extends Controller
             'fields' => $this->fields,
             'fieldItems' => $this->fieldItems,
             'projectItems' => $this->projectItems,
-            'typicalProjects' => $this->typicalProjects
+            'typicalProjects' => $this->typicalProjects,
+            'footerPosts' => $this->footerPosts
         ]);
     }
 
@@ -134,7 +144,8 @@ class FeIndexController extends Controller
           'fields' => $this->fields,
           'typicalFields' => $this->typicalFields,
           'posts' => $posts,
-          'category' => $category
+          'category' => $category,
+          'footerPosts' => $this->footerPosts
       ]);
 
     }
@@ -154,6 +165,7 @@ class FeIndexController extends Controller
             'typicalFields' => $this->typicalFields,
             'excludedPosts' => $excludedPosts,
             'post' => $post,
+            'footerPosts' => $this->footerPosts
         ]);
     }
 
@@ -168,6 +180,7 @@ class FeIndexController extends Controller
             'projectItems' => $this->projectItems,
             'typicalProjects' => $this->typicalProjects,
             'typicalFields' => $this->typicalFields,
+            'footerPosts' => $this->footerPosts
         ]);
     }
     public function gallery()
@@ -184,7 +197,8 @@ class FeIndexController extends Controller
             'partners' => $this->partner,
             'projects' => $this->projects,
             'fields' => $this->fields,
-            'albumsWithPhoto' => $albumsWithPhoto
+            'albumsWithPhoto' => $albumsWithPhoto,
+            'footerPosts' => $this->footerPosts
         ]);
     }
     public function showAlbum($slug) 
@@ -200,7 +214,8 @@ class FeIndexController extends Controller
             'projects' => $this->projects,
             'fields' => $this->fields,
             'photos' => $photos, 
-            'album' => $album
+            'album' => $album,
+            'footerPosts' => $this->footerPosts
         ]);
     }
 
@@ -209,7 +224,20 @@ class FeIndexController extends Controller
         return view('fe-pages.contact',[
             'partners' => $this->partner,
             'projects' => $this->projects,
-            'fields' => $this->fields
+            'fields' => $this->fields,
+            'footerPosts' => $this->footerPosts
+        ]);
+    }
+    public function showNewsList()
+    {
+        return view('fe-pages.newslist',[
+            'partners' => $this->partner,
+            'projects' => $this->projects,
+            'fields' => $this->fields,
+            'typicalProjects' => $this->typicalProjects,
+            'typicalFields' => $this->typicalFields,
+            'footerPosts' => $this->footerPosts,
+            'news' => $this->news
         ]);
     }
 }

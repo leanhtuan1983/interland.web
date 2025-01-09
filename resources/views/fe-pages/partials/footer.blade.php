@@ -7,14 +7,22 @@
             Chúng tôi tự tin sẽ đem đến Khách hàng và Đối tác giá trị tối ưu nhất...
             </p>
             <ul class="list-unstyled">
-                <li class="border-bottom pb-1"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Thương mại</a></li>
-                <li class="border-bottom pb-1 pt-2"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Dịch vụ GTGT</a></li>
-                <li class="border-bottom pb-1 pt-2"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Bất động sản</a></li>
-                <li class="border-bottom pb-1 pt-2"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Trung tâm Viễn thông</a></li>
+                <li class="footer-divider pb-1"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Thương mại</a></li>
+                <li class="footer-divider pb-1 pt-2"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Dịch vụ GTGT</a></li>
+                <li class="footer-divider pb-1 pt-2"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Bất động sản</a></li>
+                <li class="footer-divider pb-1 pt-2"><a class="text-decoration-none text-white-50" href="http://"><i class="bi bi-chevron-right me-2"></i>Trung tâm Viễn thông</a></li>
             </ul>
         </div>
         <div class="col-3 p-2">
             <p class="fs-5">Dự án của chúng tôi</p>
+            <ul class="list-unstyled">
+            @foreach ($footerPosts as $footerPost ) 
+                <li class="pt-2 footer-divider"><a class="text-decoration-none text-white-50" href="{{ route('viewProjectItemPost',$footerPost->slug) }}">{{ $footerPost->title }}</a>
+                <p class="mb-1 text-white-50">{{ Carbon\Carbon::parse($footerPost->created_at)->format('d/m/y')}}</p>
+            </li>
+                
+            @endforeach
+            </ul>
         </div>
         <div class="col-3 p-2">
             <p class="fs-5">Tin tức & Sự kiện</p>
