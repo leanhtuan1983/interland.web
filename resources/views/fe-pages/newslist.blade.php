@@ -14,18 +14,18 @@
         <div class="col-9 mt-4">
             @foreach ($news as $new)
             <div class="d-flex mt-4 border-bottom border-black-50">
-                <img class="img-fluid mb-4" src="{{ url('storage/'.$new->img_path) }}" alt="" style="width:30%; height:40%; object-fit:cover;">
+                <img class="img-fluid mb-4" src="{{ url('storage/'.$new->img_path) }}" alt="" style="width:218px; height:auto; object-fit:cover;">
                 <div class="ms-4">
-                    <a class="text-decoration-none text-dark h4" href="">{{ $new->title }}</a>
+                    <a class="text-decoration-none text-dark h4" href="{{ route('showItemNews',$new->slug) }}">{{ $new->title }}</a>
                     <p class="text-black-50">
                         <i class="bi bi-person me-2"></i>{{ $new -> author }} | 
-                        <a class="text-decoration-none text-black-50"  href="{{ route('category-field',$new->categories->slug) }}"><i class="bi bi-bookmark me-2"></i>{{ $new -> categories -> name }}</a> | 
+                        <a class="text-decoration-none text-black-50"  href="{{ route('showNewsList') }}"><i class="bi bi-bookmark me-2"></i>{{ $new -> categories -> name }}</a> | 
                         <i class="bi bi-clock me-2"></i>{{ Carbon\Carbon::parse($new->created_at)->isoFormat('dddd, D/M/YYYY') }} | 
                         {{ Carbon\Carbon::parse($new->created_at)->format('h:m') }}
                     </p>
-                    <p>{{ $new-> summary }}</p>
+                    <p>{{ Str::words($new->summary, 50, '...') }}</p>
                     <div class="mb-2">
-                        <a class="text-decoration-none" style="color: rgb(99,35,111);" href="">Chi tiết...</a>
+                        <a class="text-decoration-none" style="color: rgb(99,35,111);" href="#">Chi tiết...</a>
                     </div>
                     
                 </div>      

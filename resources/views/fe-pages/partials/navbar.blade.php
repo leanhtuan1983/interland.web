@@ -1,87 +1,81 @@
-<style>
-    .navbar-nav .nav-link {
-    position: relative;
-    text-decoration: none;
-    padding-bottom: 2px;
-}
-.nav-link.active {
-    font-weight: bold;
-    background: #eb891a;
-    border-radius: 4px;
-    
-}
-.navbar-nav .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: #7554a3;
-    transition: width 0.3s ease-in-out;
-}
-.navbar-nav .nav-link:hover::after {
-    width: 100%;
-}
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block; /* Hiển thị menu khi hover */
-    margin-top: 0;  /* Tùy chọn để căn chỉnh menu */
-}
-</style>
 <!-- Thanh điều hướng chính -->
 <div class="container-fluid bg-light d-flex justify-content-center py-2">
-    <div class="row align-items-center justify-content-between main-nav">
-        <div class="col-md-2 text-center">
+    <div class="row container main-nav" style="width:1200px;">
+        <!-- Logo -->
+        <div class="col-md-2 d-flex justify-content-start align-items-center">
+            <!-- Dropdown button (chỉ hiển thị khi < md) -->
+            <div class="d-md-none">
+                <div class="dropdown">
+                    <button class="navbar-toggler" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                        <li><a href="{{ route('home') }}" class="dropdown-item {{ Request::routeIs('home') ? 'active' : '' }}">TRANG CHỦ</a></li>
+                        <li><a href="{{ route('introduce') }}" class="dropdown-item {{ Request::routeIs('introduce') ? 'active' : '' }}">GIỚI THIỆU</a></li>
+                        <li><a href="{{ route('all-fields') }}" class="dropdown-item {{ Request::routeIs('all-fields') ? 'active' : '' }}">LĨNH VỰC HOẠT ĐỘNG</a></li>
+                        <li><a href="{{ route('all-projects')}}" class="dropdown-item {{ Request::routeIs('all-projects') ? 'active' : '' }}">DỰ ÁN</a></li>
+                        <li><a href="{{ route('gallery') }}" class="dropdown-item {{ Request::routeIs('gallery') ? 'active' : '' }}">HÌNH ẢNH</a></li>
+                        <li><a href="{{ route('view-costumer') }}" class="dropdown-item {{ Request::routeIs('view-costumer') ? 'active' : '' }}">KHÁCH HÀNG</a></li>
+                        <li><a href="{{ route('contact') }}" class="dropdown-item {{ Request::routeIs('contact') ? 'active' : '' }}">LIÊN HỆ</a></li>
+                        <li><a href="#" class="dropdown-item {{ Request::is('tuyen-dung*') ? 'active' : '' }}">TUYỂN DỤNG</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Logo -->
             <a href="{{ route('home') }}">
                 <img class="img-fluid" src="{{ asset('assets/images/logo.png') }}" alt="Logo" style="height:80px; width:160px;">
             </a>
         </div>
-        <div class="col-md-10">
+
+        <!-- Menu lớn (chỉ hiển thị khi >= md) -->
+        <div class="col-md-10 d-none d-md-flex justify-content-end">
             <nav class="navbar navbar-expand-md d-flex justify-content-end">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            <ul class="navbar-nav justify-content-end">
-                <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link text-dark {{ Request::routeIs('home') ? 'active' : '' }}">TRANG CHỦ</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('introduce') }}" class="nav-link text-dark {{ Request::routeIs('introduce') ? 'active' : '' }}">GIỚI THIỆU</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="{{ route('all-fields') }}" class="nav-link text-dark {{ Request::routeIs('all-fields') ? 'active' : '' }}" id="navbarDropdown" role="button">
-                        LĨNH VỰC HOẠT ĐỘNG
-                    </a>
-                    <ul class="dropdown-menu fs-6 costume-dropdown">
-                        @foreach ($fields as $field)
-                            <li class="border-bottom border-secondary"><a class="dropdown-item" href="{{ route('category-field',$field->slug) }}">{{ $field->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="{{ route('all-projects')}}" class="nav-link text-dark {{ Request::routeIs('all-projects') ? 'active' : '' }}" id="navbarDropdown" role="button">
-                        DỰ ÁN
-                    </a>
-                    <ul class="dropdown-menu fs-6 costume-dropdown">
-                        @foreach ($projects as $project)
-                            <li class="border-bottom border-secondary"><a class="dropdown-item" href="{{ route('category-project',$project->slug) }}">{{ $project->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('gallery') }}" class="nav-link text-dark {{ Request::routeIs('gallery') ? 'active' : '' }}">HÌNH ẢNH</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('view-costumer') }}" class="nav-link text-dark {{ Request::routeIs('view-costumer') ? 'active' : '' }}">KHÁCH HÀNG</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('contact') }}" class="nav-link text-dark {{ Request::routeIs('contact') ? 'active' : '' }}">LIÊN HỆ</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-dark {{ Request::is('tuyen-dung*') ? 'active' : '' }}">TUYỂN DỤNG</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item">
+                        <a href="{{ route('home') }}" class="nav-link text-dark {{ Request::routeIs('home') ? 'active' : '' }}">TRANG CHỦ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('introduce') }}" class="nav-link text-dark {{ Request::routeIs('introduce') ? 'active' : '' }}">GIỚI THIỆU</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="{{ route('all-fields') }}" class="nav-link text-dark {{ Request::routeIs('all-fields') ? 'active' : '' }}" id="navbarDropdown" role="button">
+                            LĨNH VỰC HOẠT ĐỘNG
+                        </a>
+                        <ul class="dropdown-menu fs-6 costume-dropdown">
+                            @foreach ($fields as $field)
+                                <li class="border-bottom border-secondary">
+                                    <a class="dropdown-item" href="{{ route('category-field',$field->slug) }}">{{ $field->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="{{ route('all-projects')}}" class="nav-link text-dark {{ Request::routeIs('all-projects') ? 'active' : '' }}" id="navbarDropdown" role="button">
+                            DỰ ÁN
+                        </a>
+                        <ul class="dropdown-menu fs-6 costume-dropdown">
+                            @foreach ($projects as $project)
+                                <li class="border-bottom border-secondary">
+                                    <a class="dropdown-item" href="{{ route('category-project',$project->slug) }}">{{ $project->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('gallery') }}" class="nav-link text-dark {{ Request::routeIs('gallery') ? 'active' : '' }}">HÌNH ẢNH</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('view-costumer') }}" class="nav-link text-dark {{ Request::routeIs('view-costumer') ? 'active' : '' }}">KHÁCH HÀNG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('contact') }}" class="nav-link text-dark {{ Request::routeIs('contact') ? 'active' : '' }}">LIÊN HỆ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-dark {{ Request::is('tuyen-dung*') ? 'active' : '' }}">TUYỂN DỤNG</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
 </div>

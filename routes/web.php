@@ -66,5 +66,6 @@ Route::get('/du-an/{slug}',[FeIndexController::class,'showCategoryProject'])->na
 Route::get('/view/{post}',[FeIndexController::class,'viewFieldItemPost'])->name('viewFieldItemPost');
 Route::get('/show/{post}',[FeIndexController::class,'viewProjectItemPost'])->name('viewProjectItemPost');
 Route::get('/album/{slug}',[FeIndexController::class,'showAlbum'])->name('showAlbum');
+Route::get('/tin-tuc/{post}',[FeIndexController::class,'showItemNews'])->name('showItemNews');
 
 

@@ -1,4 +1,4 @@
-<!-- Hiển thị 1 bài viết của trang Lĩnh vực hoạt động -->
+<!-- Hiển thị 1 bài viết của trang Tin tức -->
 @extends('fe-pages.layouts.app')
 @section('title',$post->title)
 @section('content')
@@ -12,8 +12,9 @@
         <div class="col-9 mt-4">
             <h4>{{ $post -> title }}</h4>
             <p class="text-black-50"><i class="bi bi-person me-2"></i>{{ $post -> author }} | 
-            <a class="text-decoration-none text-black-50"  href="{{ route('category-field',$post->categories->slug) }}"><i class="bi bi-bookmark me-2"></i>{{ $post -> categories -> name }}</a> | | 
-            <i class="bi bi-clock me-2"></i>{{ Carbon\Carbon::parse($post->created_at)->isoFormat('dddd, D/M/YYYY') }} | {{ Carbon\Carbon::parse($post->created_at)->format('h:m') }}
+            <a class="text-decoration-none text-black-50"  href="{{ route('showNewsList') }}"><i class="bi bi-bookmark me-2"></i>{{ $post -> categories -> name }}</a> | | 
+            <i class="bi bi-clock me-2"></i>{{ Carbon\Carbon::parse($post->created_at)->isoFormat('dddd, D/M/YYYY') }} | 
+            {{ Carbon\Carbon::parse($post->created_at)->format('h:m') }}
         </p>
         <button class="btn btn-primary btn-sm border-rounded me-2"><i class="bi bi-facebook ms-3 me-3"></i></button>
         <button class="btn btn-dark btn-sm border-rounded me-2"><i class="bi bi-twitter-x ms-3 me-3"></i></button>
@@ -29,14 +30,14 @@
         <div class="mt-5">
             <h5>Các tin tức khác</h5>
             <ul>
-                @foreach ($excludedPosts as $title)
+                @foreach ($excludedNews as $title)
                 <li><a href="{{ route('viewFieldItemPost', ['post' => Str::slug($title)]) }}" class="text-decoration-none text-dark">{{ $title }}</a></li>
                 @endforeach
             </ul>
         </div>
         </div>
         <div class="col-3 d-block mt-4">
-            @include('fe-pages.partials.fieldItem-sidebar')
+            @include('fe-pages.partials.projectItem-sidebar')
         </div>
     </div> 
 </div>

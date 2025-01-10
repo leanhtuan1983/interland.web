@@ -11,7 +11,9 @@
     <div class="d-flex justify-content-between">
         <div class="col-9 mt-4">
             <h4>{{ $post -> title }}</h4>
-            <p class="text-black-50"><i class="bi bi-person me-2"></i>{{ $post -> author }} | <i class="bi bi-bookmark me-2"></i>{{ $post -> categories -> name }} | <i class="bi bi-clock me-2"></i>{{ Carbon\Carbon::parse($post->created_at)->isoFormat('dddd, D/M/YYYY') }} | {{ Carbon\Carbon::parse($post->created_at)->format('h:m') }}
+            <p class="text-black-50"><i class="bi bi-person me-2"></i>{{ $post -> author }} | 
+            <a class="text-decoration-none text-black-50"  href="{{ route('category-project',$post->categories->slug) }}"><i class="bi bi-bookmark me-2"></i>{{ $post -> categories -> name }}</a> | | 
+            <i class="bi bi-clock me-2"></i>{{ Carbon\Carbon::parse($post->created_at)->isoFormat('dddd, D/M/YYYY') }} | {{ Carbon\Carbon::parse($post->created_at)->format('h:m') }}
         </p>
         <button class="btn btn-primary btn-sm border-rounded me-2"><i class="bi bi-facebook ms-3 me-3"></i></button>
         <button class="btn btn-dark btn-sm border-rounded me-2"><i class="bi bi-twitter-x ms-3 me-3"></i></button>
