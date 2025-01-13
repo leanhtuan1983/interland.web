@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('categories.update', $category->id) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('categories.update', $category->slug) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method("PUT")
                     <div class="mb-3 row">
@@ -29,7 +29,20 @@
                             <img src="{{ asset('storage/' . $category->image_path) }}" alt="Current Image" class="img-thumbnail mt-2" width="300">
                         @endif
                     </div>
-
+                    <div class="mb-3">
+                    <select name="page_id" id="page_id" 
+                                    class="form-control @error('page_id') is-invalid @enderror">
+                                @foreach ($pages as $page)
+                                    <option value="{{ $page->id }}" 
+                                        {{ old('page_id', $category->page_id) == $page->id ? 'selected' : '' }}>
+                                        {{ $page->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                    </div>
                     <div class="mb-3 row">
                         <label for="description" class="form-label">Description</label>
                         <textarea id="description" name="description" class="form-control" required>{{ old('description', $category->description) }}</textarea>

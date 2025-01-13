@@ -6,6 +6,7 @@ use App\Models\Page;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
@@ -68,41 +69,58 @@ class CategoryController extends Controller
             'category' => $category
         ]);
     }
-    public function edit(Category $category)
+    public function edit($slug)
     {
+        $category = Category::where('slug', $slug)->firstOrFail();
         return view('categories.edit', [
-            'category' => $category
+            'category' => $category,
+            'pages'=>Page::all()
         ]);
     }
     public function update(StoreCategoryRequest $request, Category $category)
-    {
-        // Lấy dữ liệu đã được xác thực từ request
-        $data = $request->validated();
+{
+    // Lấy dữ liệu đã được xác thực từ request
+    $data = $request->validated();
 
-        // Kiểm tra xem có file hình ảnh mới được tải lên không
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-        // Xóa hình ảnh cũ nếu có
-            if ($category->image_path && file_exists(storage_path('app/public/' . $category->image_path))) {
-                unlink(storage_path('app/public/' . $category->image_path));
-            }
-
-        // Lưu hình ảnh mới
-        $imagePath = $request->file('image')->store('images', 'public');
-
-        // Cập nhật đường dẫn hình ảnh mới vào dữ liệu
-        $data['image_path'] = $imagePath;
+    // Kiểm tra xem có file hình ảnh không và xử lý
+    if ($request->hasFile('image') && $request->file('image')->isValid()) {
+        // Xóa file ảnh cũ nếu có
+        if ($category->image_path && Storage::disk('public')->exists($category->image_path)) {
+            Storage::disk('public')->delete($category->image_path);
         }
 
-        // Cập nhật dữ liệu vào cơ sở dữ liệu
-        $category->update([
-            'name' => $data['name'],
-            'description' => $data['description'],
-            'image_path' => $data['image_path'] ?? $category->image_path, // Giữ nguyên hình ảnh cũ nếu không có ảnh mới
-        ]);
+        // Lưu file mới vào thư mục storage/app/public/images và lấy đường dẫn
+        $imagePath = $request->file('image')->store('images', 'public');
 
-        // Quay lại danh sách với thông báo thành công
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully!');
+        // Thêm đường dẫn ảnh mới vào mảng $data
+        $data['image'] = $imagePath;
     }
+
+    // Cập nhật slug nếu tên thay đổi
+    if ($data['name'] !== $category->name) {
+        $slug = Str::slug($data['name']);
+
+        // Đảm bảo slug là duy nhất
+        if (Category::where('slug', $slug)->where('id', '!=', $category->id)->exists()) {
+            $slug .= '-' . time();
+        }
+
+        $data['slug'] = $slug;
+    }
+
+    // Cập nhật dữ liệu vào database
+    $category->update([
+        'name' => $data['name'],
+        'slug' => $data['slug'] ?? $category->slug, // Giữ nguyên slug nếu không thay đổi tên
+        'description' => $data['description'],
+        'page_id' => $data['page_id'],
+        'image_path' => $data['image'] ?? $category->image_path, // Giữ nguyên đường dẫn ảnh cũ nếu không có ảnh mới
+    ]);
+
+    // Quay lại trang danh sách category với thông báo thành công
+    return redirect()->route('categories.index')->with('success', 'Category updated successfully!');
+}
+
     public function destroy(Category $category)
     {
          // Kiểm tra xem hình ảnh có tồn tại không và xóa nó

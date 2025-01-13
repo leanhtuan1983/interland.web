@@ -30,8 +30,8 @@
             </div>
 
             <div class="map-buttons" style = "display:flex;">
-                <button id="btn-map1" onclick="showMap(1)"><i class ="icon-map-pin-fill"></i> Cơ sở 1 - hà nội</button>
-                <button id="btn-map2" onclick="showMap(2)"><i class ="icon-map-pin-fill"></i> Cơ sở 2 - tp.hcm</button>
+                <button id="btn-map1" onclick="showMap(1)"><i class="bi bi-geo-alt"></i> Cơ sở 1 - hà nội</button>
+                <button id="btn-map2" onclick="showMap(2)"><i class="bi bi-geo-alt"></i> Cơ sở 2 - tp.hcm</button>
             </div>
         </div>
         <div class="col-4">

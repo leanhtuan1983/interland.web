@@ -37,15 +37,16 @@
 
 /* CSS tiêu đề trang */
 .mybreadcrumb {
+    background: rgb(16, 16, 17);
     background: radial-gradient(
             circle,
-            rgba(117, 84, 163, 0.7) 0%,
-            rgba(117, 84, 163, 0.9948354341736695) 40%
+            rgba(16, 16, 17, 0.5270483193277311) 0%,
+            rgba(68, 25, 129, 0.8015581232492998) 35%
         ),
         /* Lớp phủ gradient */
             url("/assets/images/banners/1730689956_banner-bds.jpg"); /* Hình ảnh nền */
     background-size: cover; /* Đảm bảo hình ảnh phủ đầy khung */
-    background-position: center; /* Căn giữa hình ảnh */
+    background-position: 100% 90%;
     background-repeat: no-repeat; /* Không lặp lại hình ảnh */
 }
 /* CSS button */

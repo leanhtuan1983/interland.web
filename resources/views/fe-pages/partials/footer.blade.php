@@ -37,10 +37,14 @@
         </div>
         <div class="col-3 p-2">
             <p class="fs-5">Liên hệ với chúng tôi</p>
-            <strong>Địa chỉ</strong></br> Toà nhà JoyHouse, Lô B2/D21 Khu ĐTM Cầu Giấy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội</br>
-            <strong>Số điện thoại</strong></br>+84.24 6257 6789</br>
-            <strong>Fax</strong></br>+84.24 6257 6789</br>
-            <strong>Email</strong></br>info@interland.vn
+            <strong>Địa chỉ</strong></br> 
+                <span class ="text-white-50">Toà nhà JoyHouse, Lô B2/D21 Khu ĐTM Cầu Giấy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội</span></br>
+            <strong>Số điện thoại</strong></br>
+                <span class ="text-white-50">+84.24 6257 6789</span></br>
+            <strong>Fax</strong></br>
+                <span class ="text-white-50">+84.24 6257 6789</span></br>
+            <strong>Email</strong></br>
+                <span class ="text-white-50">info@interland.vn</span>
             </p>
         </div>
     </div>  

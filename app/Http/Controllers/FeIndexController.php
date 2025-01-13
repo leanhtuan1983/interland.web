@@ -21,8 +21,8 @@ class FeIndexController extends Controller
     protected $typicalProjects;
     protected $posts;
     protected $footerPosts;
-    protected $news;
     protected $footerNews;
+    protected $intro;
     public function __construct() {
         $this->partner = Partner::all();
         $this->fields = Category::where('page_id',1)->get();
@@ -33,7 +33,8 @@ class FeIndexController extends Controller
         $this->typicalProjects = Post::where('page_id',2)->where('category_id',8)->take(6)->get();
         $this->footerPosts = Post::where('category_id',8)->take(4)->get();
         $this->footerNews = Post::where('category_id',14)->take(4)->get();
-        $this->news = Post::where('category_id',14)->paginate(10);
+        $this->intro = Post::select('slug')->where('id',45)->get();
+
     }
 
     // Hiển thị homepage
@@ -45,7 +46,8 @@ class FeIndexController extends Controller
             'projects' => $this->projects,
             'fields' => $this->fields,
             'footerPosts' => $this->footerPosts,
-            'footerNews' =>$this->footerNews
+            'footerNews' =>$this->footerNews,
+            'intro'=>$this->intro
         ]);
     }
 
@@ -194,6 +196,8 @@ class FeIndexController extends Controller
             'footerNews' =>$this->footerNews
         ]);
     }
+
+    // Hiển thị danh mục các hình ảnh
     public function gallery()
     {
        
@@ -213,6 +217,7 @@ class FeIndexController extends Controller
             'footerNews' =>$this->footerNews
         ]);
     }
+    // Hiển thị 1 album
     public function showAlbum($slug) 
     {
         $album = Album::where('slug',$slug) -> firstOrFail();
@@ -232,6 +237,7 @@ class FeIndexController extends Controller
         ]);
     }
 
+    // Hiển thị trang Liên hệ
     public function showContact()
     {
         return view('fe-pages.contact',[
@@ -242,6 +248,8 @@ class FeIndexController extends Controller
             'footerNews' =>$this->footerNews
         ]);
     }
+
+    // Hiển thị danh sách bài viết tin tức ở footer
     public function showNewsList()
     {
         return view('fe-pages.newslist',[
@@ -251,10 +259,10 @@ class FeIndexController extends Controller
             'typicalProjects' => $this->typicalProjects,
             'typicalFields' => $this->typicalFields,
             'footerPosts' => $this->footerPosts,
-            'news' => $this->news,
             'footerNews' =>$this->footerNews
         ]);
     }
+    // Hiển thị nội dung 1 bài viết thuộc danh mục tin tức
     public function showItemNews(Post $post)
     {       
         $excludedNews = Post::where('category_id',$post->category_id)->where('slug', '!=', $post->slug)->pluck('title');
@@ -265,7 +273,22 @@ class FeIndexController extends Controller
             'typicalProjects' => $this->typicalProjects,
             'typicalFields' => $this->typicalFields,
             'footerPosts' => $this->footerPosts,
-            'news' => $this->news,
+            'excludedNews' => $excludedNews,
+            'post' => $post,
+            'footerNews' =>$this->footerNews
+        ]);
+    }
+
+    public function viewIntro(Post $post)
+    {
+        $excludedNews = Post::where('category_id',$post->category_id)->where('slug', '!=', $post->slug)->pluck('title');
+        return view('fe-pages.viewIntro', [
+            'partners' => $this->partner,
+            'projects' => $this->projects,
+            'fields' => $this->fields,
+            'typicalProjects' => $this->typicalProjects,
+            'typicalFields' => $this->typicalFields,
+            'footerPosts' => $this->footerPosts,
             'excludedNews' => $excludedNews,
             'post' => $post,
             'footerNews' =>$this->footerNews

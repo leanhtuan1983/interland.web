@@ -109,7 +109,7 @@
                         <div class="row justify-content-center text-center mt-3">
                             <div class="col-md-12">
                                 <p>Back to 
-                                    <a href="{{ route('home') }}"><strong>DASHBOARD</strong></a>
+                                    <a href="{{ route('admin') }}"><strong>DASHBOARD</strong></a>
                                 </p>
                                 <p>
                                     Visit page: <a href="{{ route('home') }}"><strong>INTERLAND</strong></a>

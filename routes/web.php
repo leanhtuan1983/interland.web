@@ -32,7 +32,7 @@ use App\Http\Controllers\PhotoController;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
@@ -67,5 +67,6 @@ Route::get('/view/{post}',[FeIndexController::class,'viewFieldItemPost'])->name(
 Route::get('/show/{post}',[FeIndexController::class,'viewProjectItemPost'])->name('viewProjectItemPost');
 Route::get('/album/{slug}',[FeIndexController::class,'showAlbum'])->name('showAlbum');
 Route::get('/tin-tuc/{post}',[FeIndexController::class,'showItemNews'])->name('showItemNews');
+Route::get('/gioi-thieu/{slug}',[FeIndexController::class,'viewIntro'])->name('viewIntro');
 
 
