@@ -22,7 +22,7 @@
         <p class="mt-3">Với đội ngũ nhân sự ưu tú, môi trường làm việc năng động, đề cao giá trị văn hóa doanh nghiệp,<br>theo chúng tôi tự tin sẽ đem đến Khách hàng và Đối tác giá trị tối ưu nhất...</p>
     </div>
     <div class="col-2 d-flex justify-content-end" style="height:80px; margin-right:100px">
-      <a class=" ms-2 costume-button-index" href="">Chi tiết<i class="bi bi-chevron-right ms-2"></i></a>
+      <a class=" ms-2 costume-button-index" href="{{ route('viewIntro',['slug'=>'cong-ty-cp-dau-tu-cong-nghe-va-dia-oc-interland']) }}">Chi tiết<i class="bi bi-chevron-right ms-2"></i></a>
     </div>
 </div>
 <div class="container mt-2 d-flex justify-content-between" style="width:1294px;background: #e1e1e1">

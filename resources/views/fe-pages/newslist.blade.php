@@ -1,6 +1,6 @@
 <!-- Hiển thị các bài viết có cùng 1 category trong trang Lĩnh vực hoạt động -->
 @extends('fe-pages.layouts.app')
-@section('title', config('pages.news') )
+@section('title', config('pages.title.news') )
 
 @section('content')
 <div class="tophead container-fluid d-flex justify-content-center text-white mybreadcrumb">
@@ -25,7 +25,7 @@
                     </p>
                     <p>{{ Str::words($new->summary, 50, '...') }}</p>
                     <div class="mb-2">
-                        <a class="text-decoration-none" style="color: rgb(99,35,111);" href="#">Chi tiết...</a>
+                        <a class="text-decoration-none" style="color: rgb(99,35,111);" href="{{ route('showItemNews',$new->slug) }}">Chi tiết...</a>
                     </div>
                     
                 </div>      

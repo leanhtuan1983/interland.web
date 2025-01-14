@@ -23,6 +23,8 @@ class FeIndexController extends Controller
     protected $footerPosts;
     protected $footerNews;
     protected $intro;
+    protected $news;
+    protected $recruitment;
     public function __construct() {
         $this->partner = Partner::all();
         $this->fields = Category::where('page_id',1)->get();
@@ -34,7 +36,8 @@ class FeIndexController extends Controller
         $this->footerPosts = Post::where('category_id',8)->take(4)->get();
         $this->footerNews = Post::where('category_id',14)->take(4)->get();
         $this->intro = Post::select('slug')->where('id',45)->get();
-
+        $this->news = Post::with('categories')->where('page_id',3)->paginate(6);
+        $this->recruitment = Post::with('categories')->where('page_id',6)->get()->groupBy('categories.name'); 
     }
 
     // Hiển thị homepage
@@ -259,7 +262,8 @@ class FeIndexController extends Controller
             'typicalProjects' => $this->typicalProjects,
             'typicalFields' => $this->typicalFields,
             'footerPosts' => $this->footerPosts,
-            'footerNews' =>$this->footerNews
+            'footerNews' =>$this->footerNews,
+            'news' =>$this->news
         ]);
     }
     // Hiển thị nội dung 1 bài viết thuộc danh mục tin tức
@@ -279,8 +283,9 @@ class FeIndexController extends Controller
         ]);
     }
 
-    public function viewIntro(Post $post)
+    public function viewIntro($slug)
     {
+        $post = Post::where('slug',$slug)->firstOrFail();
         $excludedNews = Post::where('category_id',$post->category_id)->where('slug', '!=', $post->slug)->pluck('title');
         return view('fe-pages.viewIntro', [
             'partners' => $this->partner,
@@ -296,7 +301,17 @@ class FeIndexController extends Controller
     }
     public function recruitment()
     {
-        return view('fe-pages.recruitment');
+        return view('fe-pages.recruitment', [
+            'partners' => $this->partner,
+            'projects' => $this->projects,
+            'fields' => $this->fields,
+            'fieldItems' => $this->fieldItems,
+            'projectItems' => $this->projectItems,
+            'typicalProjects' => $this->typicalProjects,
+            'footerPosts' => $this->footerPosts,
+            'footerNews' =>$this->footerNews,
+            'recruitment'=>$this->recruitment
+        ]);
     }
     public function recruitmentItem(Post $post)
     {

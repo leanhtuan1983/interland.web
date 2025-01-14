@@ -72,7 +72,7 @@
                         <a href="{{ route('contact') }}" class="nav-link text-dark {{ Request::routeIs('contact') ? 'active' : '' }}">LIÊN HỆ</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-dark {{ Request::is('tuyen-dung*') ? 'active' : '' }}">TUYỂN DỤNG</a>
+                        <a href="{{ route('recruitment') }}" class="nav-link text-dark {{ Request::routeIs('recruitment') ? 'active' : '' }}">TUYỂN DỤNG</a>
                     </li>
                 </ul>
             </nav>

@@ -19,7 +19,7 @@
             song song đầu tư kinh doanh bất động sản. Hiện nay, Công ty đang triển khai nhiều dự án viễn thông- bất động sản trong và ngoài nước. 
             Trong đó, đầu tư sang thị trường Lào và Campuchia là hai thị trường đầy tiềm năng, hứa hẹn đem lại thành quả lớn cho sự phát triển bền vững...
             </p>
-            <a class=" ms-2 costume-button" href="">Chi tiết<i class="bi bi-chevron-right ms-2"></i></a>  
+            <a class=" ms-2 costume-button" href="{{ route('viewIntro',['slug'=>'cong-ty-cp-dau-tu-cong-nghe-va-dia-oc-interland']) }}">Chi tiết<i class="bi bi-chevron-right ms-2"></i></a>  
         </div>
         <div class="col-4" style="background:#f1f1f1">
             <p class="h4 mt-3 ms-3" style="color:#7754a3; font-size:18px">Tầm nhìn và giá trị cốt lõi</p>

@@ -60,6 +60,7 @@ Route::get('/settings',[SettingController::class,'index'])->name('settings');
 Route::get('/hinh-anh',[FeIndexController::class,'gallery'])->name('gallery');
 Route::get('/lien-he',[FeIndexController::class,'showContact'])->name('contact');
 Route::get('/tin-tuc',[FeIndexController::class,'showNewsList'])->name('showNewsList');
+Route::get('/tuyen-dung',[FeIndexController::class,'recruitment'])->name('recruitment');
 
 Route::get('/linh-vuc-hoat-dong/{slug}',[FeIndexController::class,'showCategoryField'])->name('category-field');
 Route::get('/du-an/{slug}',[FeIndexController::class,'showCategoryProject'])->name('category-project');

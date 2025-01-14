@@ -12,7 +12,7 @@
         <div class="col-9 mt-4">
             <h4>{{ $post -> title }}</h4>
             <p class="text-black-50"><i class="bi bi-person me-2"></i>{{ $post -> author }} | 
-            <a class="text-decoration-none text-black-50"  href="{{ route('showNewsList') }}"><i class="bi bi-bookmark me-2"></i>{{ $post -> categories -> name }}</a> | | 
+            <a class="text-decoration-none text-black-50"  href="{{ route('introduce') }}"><i class="bi bi-bookmark me-2"></i>Giới thiệu</a> | | 
             <i class="bi bi-clock me-2"></i>{{ Carbon\Carbon::parse($post->created_at)->isoFormat('dddd, D/M/YYYY') }} | 
             {{ Carbon\Carbon::parse($post->created_at)->format('h:m') }}
         </p>
@@ -31,7 +31,7 @@
             <h5>Các tin tức khác</h5>
             <ul>
                 @foreach ($excludedNews as $title)
-                <li><a href="{{ route('viewFieldItemPost', ['post' => Str::slug($title)]) }}" class="text-decoration-none text-dark">{{ $title }}</a></li>
+                <li><a href="{{ route('viewIntro',['slug'=>Str::slug($title)] ) }}" class="text-decoration-none text-dark">{{ $title }}</a></li>
                 @endforeach
             </ul>
         </div>
