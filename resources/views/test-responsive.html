@@ -1,0 +1,40 @@
+<style>
+    /* Container Flex */
+    .container {
+        display: flex;
+        flex-wrap: wrap; /* Đảm bảo các phần tử xuống hàng khi cần */
+        width: 100%;
+    }
+
+    /* Cột 70% */
+    .col-70 {
+        flex: 0 0 70%; /* Tỷ lệ 70% */
+        background-color: lightblue;
+        padding: 10px;
+        box-sizing: border-box; /* Bao gồm padding vào kích thước tổng */
+    }
+
+    /* Cột 30% */
+    .col-30 {
+        flex: 0 0 30%; /* Tỷ lệ 30% */
+        background-color: lightgreen;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Media Query: Khi màn hình nhỏ hơn 768px */
+    @media (max-width: 768px) {
+        .container {
+            display: block;
+        }
+        .col-70,
+        .col-30 {
+            flex: 0 0 100%; /* Mỗi cột chiếm 100% */
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="col-70">Cột 70%</div>
+    <div class="col-30">Cột 30%</div>
+</div>

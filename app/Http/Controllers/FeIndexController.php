@@ -313,8 +313,20 @@ class FeIndexController extends Controller
             'recruitment'=>$this->recruitment
         ]);
     }
-    public function recruitmentItem(Post $post)
+    public function recruitmentItem($slug)
     {
-        return view('fe-pages.recruitmentItem');
+        $post = Post::where('slug',$slug)->firstOrFail();
+        $excludedNews = Post::where('category_id',$post->category_id)->where('slug', '!=', $post->slug)->pluck('title');
+        return view('fe-pages.recruitmentItem',[
+            'partners' => $this->partner,
+            'projects' => $this->projects,
+            'fields' => $this->fields,
+            'typicalProjects' => $this->typicalProjects,
+            'typicalFields' => $this->typicalFields,
+            'footerPosts' => $this->footerPosts,
+            'excludedNews' => $excludedNews,
+            'post' => $post,
+            'footerNews' =>$this->footerNews
+        ]);
     }
 }

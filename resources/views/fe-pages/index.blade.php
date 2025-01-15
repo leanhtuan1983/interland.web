@@ -1,6 +1,9 @@
 <!-- Trang chủ -->
 @extends('fe-pages.layouts.app')
 @section('title',config('pages.title.home'))
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('assets/css/image-hover.css') }}">
+@endsection
 @section('content')
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 <div class="carousel-indicators">
@@ -16,7 +19,7 @@
       @endforeach
   </div>
 </div>
-<div class="container mt-4 d-flex justify-content-between" style="width:1294px;">
+<div class="container mt-4 d-block d-md-flex justify-content-between" style="width:1294px;">
     <div class="col-7" style="margin-left:100px">
         <p class="h3 lh-sm">Công ty CP đầu tư công nghệ và địa ốc Interland</p>
         <p class="mt-3">Với đội ngũ nhân sự ưu tú, môi trường làm việc năng động, đề cao giá trị văn hóa doanh nghiệp,<br>theo chúng tôi tự tin sẽ đem đến Khách hàng và Đối tác giá trị tối ưu nhất...</p>
@@ -26,20 +29,29 @@
     </div>
 </div>
 <div class="container mt-2 d-flex justify-content-between" style="width:1294px;background: #e1e1e1">
-    <div class="row mt-5 mb-4" style="margin-left:100px; margin-right:100px; font-size:14px;">
-      @foreach ($fields as $field)
-      <div class="col-3 justify-content-between">
-           <img src="{{ url('storage/'.$field->image_path) }}" style="width: 247px; height:156px" alt="">
-           <p class="h5 mt-4">{{ $field->name }}</p>
-           <p>
-           {{ $field -> description }}
-           </p> 
-           <a href="{{ route('category-field',$field->slug) }}" class="text-decoration-none fw-bold" style="color:rgb(99,35,111);"><strong>Chi tiết</strong><i class="bi bi-chevron-right"></i></a>
+  <div class="row mt-5 mb-4 d-block d-md-flex" style="margin-left:100px; margin-right:100px; font-size:14px;">
+    @foreach ($fields as $field)
+    <div class="col-3 justify-content-between">
+      <a href="{{ route('category-field', $field->slug) }}" class="text-decoration-none fw-bold">
+        <div class="image-wrapper">
+          <img src="{{ url('storage/' . $field->image_path) }}" alt="">
+          <div class="overlay text-white fs-3">
+            <div class="d-flex justify-content-end mt-2 me-2">
+              <i class="bi bi-plus-lg"></i>
+            </div>
+          </div>
         </div>
-      @endforeach
-       
+      </a>
+      <p class="h5 mt-4">{{ $field->name }}</p>
+      <p>{{ $field->description }}</p>
+      <a href="{{ route('category-field', $field->slug) }}" class="text-decoration-none fw-bold" style="color:rgb(99,35,111);">
+        <strong>Chi tiết</strong><i class="bi bi-chevron-right"></i>
+      </a>
     </div>
+    @endforeach
+  </div>
 </div>
+
 <div class="container mt-4 d-flex justify-content-between" style="width:1294px;">   
 </div>
 @endsection

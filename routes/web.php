@@ -62,6 +62,7 @@ Route::get('/lien-he',[FeIndexController::class,'showContact'])->name('contact')
 Route::get('/tin-tuc',[FeIndexController::class,'showNewsList'])->name('showNewsList');
 Route::get('/tuyen-dung',[FeIndexController::class,'recruitment'])->name('recruitment');
 
+
 Route::get('/linh-vuc-hoat-dong/{slug}',[FeIndexController::class,'showCategoryField'])->name('category-field');
 Route::get('/du-an/{slug}',[FeIndexController::class,'showCategoryProject'])->name('category-project');
 Route::get('/view/{post}',[FeIndexController::class,'viewFieldItemPost'])->name('viewFieldItemPost');
@@ -69,5 +70,5 @@ Route::get('/show/{post}',[FeIndexController::class,'viewProjectItemPost'])->nam
 Route::get('/album/{slug}',[FeIndexController::class,'showAlbum'])->name('showAlbum');
 Route::get('/tin-tuc/{post}',[FeIndexController::class,'showItemNews'])->name('showItemNews');
 Route::get('/gioi-thieu/{slug}',[FeIndexController::class,'viewIntro'])->name('viewIntro');
-
+Route::get('/tuyen-dung/{slug}',[FeIndexController::class,'recruitmentItem'])->name('recruitmentItem');
 

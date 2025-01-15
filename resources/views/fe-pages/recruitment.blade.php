@@ -1,6 +1,6 @@
 <!-- Trang Dự án -->
 @extends('fe-pages.layouts.app')
-@section('title',config('pages.title.project'))
+@section('title',config('pages.title.recruitment'))
 @section('content')
 <div class="container-fluid d-flex justify-content-center text-white mybreadcrumb">
     <div class="container d-flex justify-content-start text-white" style="width:1100px; height:102px;">
@@ -29,7 +29,7 @@
                         </div>
                         <div class="card-body post-group">
                         @foreach ($posts->take(4) as $post)
-                                    <a href="{{ route('viewProjectItemPost', $post) }}" class="text-decoration-none link-dark d-block">
+                                    <a href="{{ route('recruitmentItem', $post) }}" class="text-decoration-none link-dark d-block">
                                         <i class="bi bi-chevron-double-right me-2"></i>{{ $post->title }}
                                     </a>
                                 @endforeach

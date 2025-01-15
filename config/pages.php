@@ -8,6 +8,7 @@ return [
         'gallery' => 'Album ảnh Interland',
         'costumer' => 'Khách hàng',
         'contact' => 'Liên hệ Interland',
-        'news' => 'Tin tức'
+        'news' => 'Tin tức',
+        'recruitment' => 'Tuyển dụng'
     ]
 ];
