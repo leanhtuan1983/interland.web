@@ -8,8 +8,8 @@
     </div>
 </div>
 <div class="container-fluid justify-content-center mt-5" style="width:1100px;">
-    <div class="d-flex mb-4">
-        <div class="col-8 me-4">
+    <div class="d-md-flex mb-4">
+        <div class="col-md-8 me-4">
             <div class="map-container">
                 <!-- Bản đồ 1 -->
                 <div id="map1" class="map" style="display: block;">
@@ -34,7 +34,7 @@
                 <button id="btn-map2" onclick="showMap(2)"><i class="bi bi-geo-alt"></i> Cơ sở 2 - tp.hcm</button>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             <p class="h4">Hãy liên hệ với chúng tôi</p>
             <p style="font-size: 14px; color:grey;">Để có giải pháp tốt nhất cho doanh nghiệp của bạn!</p>
             <p style="font-size: 14px; color:grey;"><strong>Cơ sở 1:</strong>Toà nhà JoyHouse, Lô B2/D21 Khu ĐTM Cầu Giấy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội <br>

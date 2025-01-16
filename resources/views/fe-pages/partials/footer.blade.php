@@ -27,8 +27,8 @@
 }
  </style>
 <div class="container-fluid d-flex justify-content-center" style="background:rgb(85,85,85)">
-    <div class="container mt-4 text-white d-block d-md-flex justify-content-between" style="width:1100px;">
-        <div class="col-3 p-2">
+    <div class="row mt-4 ms-2 d-block d-md-flex justify-content-between" style="width:1100px;">
+        <div class="col p-2">
             <p class="fs-5">Lĩnh vực hoạt động</p>
             <p class="fs-6 fw-light">
             Chúng tôi tự tin sẽ đem đến Khách hàng và Đối tác giá trị tối ưu nhất...
@@ -41,7 +41,7 @@
             @endforeach
             </ul>
         </div>
-        <div class="col-3 p-2">
+        <div class="col p-2">
             <p class="fs-5">Dự án của chúng tôi</p>
             <ul class="list-unstyled">
             @foreach ($footerPosts as $footerPost ) 
@@ -52,7 +52,7 @@
             @endforeach
             </ul>
         </div>
-        <div class="col-3 p-2">
+        <div class="col p-2">
             <p class="fs-5">Tin tức & Sự kiện</p>
             <ul class="list-unstyled">
             @foreach ($footerNews as $footerNew )
@@ -72,7 +72,7 @@
             @endforeach
             </ul>
         </div>
-        <div class="col-3 p-2">
+        <div class="col p-2">
             <p class="fs-5">Liên hệ với chúng tôi</p>
             <strong>Địa chỉ</strong></br> 
                 <span class ="text-white-50">Toà nhà JoyHouse, Lô B2/D21 Khu ĐTM Cầu Giấy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội</span></br>

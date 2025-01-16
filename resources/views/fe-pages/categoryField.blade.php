@@ -10,8 +10,8 @@
 </div>
 
 <div class="content container justify-content-center" style="width:1100px;">
-    <div class="content row d-flex justify-content-between">
-        <div class="col-9 mt-4">
+    <div class="content row d-md-flex justify-content-between">
+        <div class="col-md-9 mt-4">
             @foreach ($posts as $item)
             <div class="d-flex mt-4 border-bottom border-black-50">
                 <img class="img-fluid mb-4" src="{{ url('storage/'.$item->img_path) }}" alt="" style="width:30%; height:40%; object-fit:cover;">
@@ -36,7 +36,7 @@
                 {{ $posts->links() }}
             </div>
         </div>
-        <div class="col-3 d-block mt-4">
+        <div class="col-md-3 d-block mt-4">
             @include('fe-pages.partials.field-category-sidebar')
         </div>
     </div>

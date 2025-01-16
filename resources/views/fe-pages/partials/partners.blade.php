@@ -12,7 +12,7 @@
             <div class="carousel-item @if($loop->first) active @endif">
                 <div class="d-flex justify-content-between">
                     @foreach($chunk as $image)
-                        <div class="col">
+                        <div class="col-md-flex">
                             <img src="{{ url('storage/'.$image->img_path) }}" alt="{{ $image->name }}" alt="Image" style="width:170px; height:70px;">
                         </div>
                     @endforeach
